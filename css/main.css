@@ -1,3 +1,7 @@
+header{
+    color: #333;
+    font-weight: bold;
+}
 body {
     margin: 60px auto;
     width: 70%;
