@@ -4,6 +4,10 @@
 		<title>Palak Jain - Personal Page</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link rel="stylesheet" href="jqcloud.css">
+		<script src="//code.jquery.com/jquery-3.2.0.min.js"></script>
+		<script src="jqcloud.js"></script>
+
 	<style>
 		.options{
 		font-size: 20px;
@@ -38,6 +42,34 @@
 		
 		<div class="left"><p>Part A</p></div>
 		<div class="right"><p>Part B </p></div>
+		var myTags = [
+    {text: "Lorem", weight: 13},
+    {text: "Ipsum", weight: 10.5, html: {"class": "vertical"}},
+    {text: "Dolor", weight: 9.4},
+    {text: "Sit", weight: 8, html: {"class": "vertical"}},
+    {text: "Amet", weight: 6.2},
+    {text: "Consectetur", weight: 5},
+    ...
+];
+
+<div id="container" style="width: 500px; height: 450px;"></div>
+		
+$("#container").jQCloud(myTags);
+
+$("#container").jQCloud(myTags,{
+  width: $this.width(),
+  height: $this.height(),
+  center: {
+    x: $this.width()) / 2.0,
+    y: $this.height()) / 2.0
+  },
+  delayedMode: word_array.length > 50,
+  shape: false, // or 'rectangular'
+  encodeURI: true,
+  removeOverflowing: true
+});
+		
+		
 		
 			
 		<footer>
