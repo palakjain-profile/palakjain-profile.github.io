@@ -4,10 +4,15 @@
 		<title>Palak Jain - Personal Page</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-		<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
-		
+		<title>Tags Cloud</title>
 	<style>
+		.container{
+			width:600px;
+			margin:30px auto;
+		}
+		a{
+			text-decoration: none;
+		}
 		
 		
 		.options{
@@ -37,12 +42,37 @@
 			<li><a href="/Resume_web.pdf">Resume</a></li>
 			<li><a href="/PortFolio">PortFolio</a></li>
         		<li><a href="/blog">Blog</a></li>
-        </div>
+                </div>
     			</ul>
 			</nav>
+		<div class="container">
+			<div id = "tags">
+				<a href="#" rel="6">Python</a>
+				<a href="#" rel="10">XML</a>
+				<a href="#" rel="15">C++</a>
+				<a href="#" rel="20">Notepad</a>
+				<a href="#" rel="6">Powerpoint</a>
+				
+			</div>
+		</div>		
 		<div class="left"><p>Part A</p></div>
 		<div class="right"><p>Part B </p></div>
-      
+			<script src="jquery.min.js"></script>
+			<script src= "jquery.tagcloud.js"></script>
+			
+		<script>
+			$('#tags a').tagcloud({
+				size:{
+					start:12,
+					end:55,
+					unit:'pt'
+				},
+				color:{
+					start: '#aaa',
+					end:'#080'
+				}
+			})
+			
 		<footer>
     		<ul>
 			
