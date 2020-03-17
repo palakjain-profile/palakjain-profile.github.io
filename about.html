@@ -71,11 +71,16 @@
 
     // create a chart
     chart = anychart.tagCloud();
+	 
+    // set the parsing mode
+    chart.data(data, {mode: "by-word"});
+
+// set the mode of the tag cloud
+function tagCloudMode(mode) {
+  chart.mode(mode);
+}	      
 	      
-    var customColorScale = anychart.scales.ordinalColor();
-customColorScale.colors(["#00b8e6", "#e6b800", "#ff4d4d"]);
-	      
-    chart.colorScale(customColorScale);
+    
 	    
     // configure angles
     chart.angles([0]);
