@@ -7,12 +7,18 @@
     		<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
 
 	<style>
-		 html, body, #container {
-      		 width: 100%;
-     		 height: 100%;
-     		 margin: 0;
-     		 padding: 0;
-     		 }
+		html, body {
+    		width: 100%;
+    		height: 100%;
+      		margin: 0;
+    		padding: 0;
+		}
+		#container {
+		    position: absolute;
+		    width: 100%;
+		    top: 35px;
+		    bottom: 0;
+		}
 		.options{
 		font-size: 20px;
 		color : red;
@@ -47,39 +53,59 @@
 		
  		<div class="left"><p><div id="container"></div>
     <script>
-      anychart.onDocumentReady(function() {
-        var data = [
-    {"x": "Mandarin chinese", "value": 10},
-    {"x": "English", "value": 8},
-    {"x": "Hindustani", "value": 12},
-    {"x": "Spanish", "value": 9},
-    {"x": "Arabic", "value": 5},
-    {"x": "Malay", "value": 9},
-    {"x": "Russian", "value": 2},
-    {"x": "Bengali", "value": 7},
-    {"x": "Portuguese", "value": 15},
-    {"x": "French", "value": 18},
-    {"x": "Hausa", "value": 3},
-    {"x": "Punjabi", "value": 13},
-    {"x": "Japanese", "value": 18},
-    {"x": "German", "value": 11},
-    {"x": "Persian", "value": 6}
-  ];
-        var chart = anychart.tagCloud(data);
+      anychart.onDocumentReady(function () {
 
-   // set a chart title
-  chart.title('15 most spoken languages')
-  // set an array of angles at which the words will be laid out
-  chart.angles([0])
-  // enable a color range
-  chart.colorRange(true);
-  // set the color range length
-  chart.colorRange().length('80%');
+    // create data
+    var data = "Tyger, tyger, burning bright " +
+               "In the forests of the night, " +
+               "What immortal hand or eye " +
+               "Could frame thy fearful symmetry? " +
+               "In what distant deeps or skies " +
+               "Burnt the fire of thine eyes? " +
+               "On what wings dare he aspire? " +
+               "What the hand dare seize the fire? " +
+               "And what shoulder and what art " +
+               "Could twist the sinews of thy heart? " +
+               "And, when thy heart began to beat, " +
+               "What dread hand and what dread feet? " +
+               "What the hammer? what the chain? " +
+               "In what furnace was thy brain? " +
+               "What the anvil? what dread grasp " +
+               "Dare its deadly terrors clasp? " +
+               "When the stars threw down their spears, " +
+               "And watered heaven with their tears, " +
+               "Did He smile His work to see? " +
+               "Did He who made the lamb make thee? " +
+               "Tyger, tyger, burning bright " +
+               "In the forests of the night, " +
+               "What immortal hand or eye " +
+               "Dare frame thy fearful symmetry? ";
 
-  // display the word cloud chart
-  chart.container("container");
-  chart.draw();
+    // create a chart
+    chart = anychart.tagCloud();
+
+    // configure angles
+    chart.angles([0]);
+
+    // set the parsing mode
+    chart.data(data, {mode: "by-word"});
+
+    // set the chart title
+    chart.listen("chartDraw", function () {
+      chart.title("Tag Cloud Chart: Mode = " +  chart.mode());
+    });
+
+    // set the container id
+    chart.container("container");
+
+    // initiate drawing the chart
+    chart.draw();
 });
+    
+// set the mode of the tag cloud
+function tagCloudMode(mode) {
+  chart.mode(mode);
+}
     </script></p></div>
  		<div class="right"><p>Part B </p></div>
 		
