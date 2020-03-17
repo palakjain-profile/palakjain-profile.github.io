@@ -79,6 +79,12 @@
     chart.title("Technologies I've worked on");
     chart.container("container");
     chart.draw();
+	      
+    chart.listen("pointClick", function(e){
+    var url = "//en.wiktionary.org/wiki/" + e.point.get("x");
+    window.open(url, "_blank");
+    });
+
 });
     </script>
 			</p></div>
