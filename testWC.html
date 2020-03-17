@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript Tag Cloud Chart</title>  
+    <title>Palak Jain: Personal Page</title>  
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
     <style>
@@ -19,27 +19,27 @@
     <script>
       anychart.onDocumentReady(function () {
     var data = [
-{"x": "learning", "value": 80},
-{"x": "lists", "value": 44},
-{"x": "meaning", "value": 40},
-{"x": "useful", "value": 36},
-{"x": "different", "value": 32},
-{"x": "grammar", "value": 28},
-{"x": "teaching", "value": 24},
-{"x": "example", "value": 20},
-{"x": "includes", "value": 56},
-{"x": "thing", "value": 12},
-{"x": "vocabulary", "value": 10},
-{"x": "frequency", "value": 10},
-{"x": "phrases", "value": 15},
-{"x": "content", "value": 27}
+{"x": "Python", "value": 80},
+{"x": "SQL", "value": 44},
+{"x": "Data Science", "value": 40},
+{"x": "Machine Learning", "value": 36},
+{"x": "Informatica", "value": 32},
+{"x": "BigData", "value": 28},
+{"x": "PowerBI", "value": 24},
+{"x": "BlockChain", "value": 20},
+{"x": "Core Java", "value": 56},
+{"x": "Data Mining", "value": 12},
+{"x": "Hadoop", "value": 14},
+{"x": "HTML", "value": 10},
+{"x": "HBase", "value": 15},
+{"x": "MS Excel", "value": 27}
     ];
 
     // Creates Tag Cloud chart.
     chart = anychart.tagCloud(data);
         chart.angles([0]);
 
-    chart.title("Create a Tag Cloud chart");
+    chart.title("Technologies I've worked on");
     chart.container("container");
     chart.draw();
 });
