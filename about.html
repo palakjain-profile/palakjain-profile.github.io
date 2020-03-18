@@ -80,9 +80,10 @@
     // Creates Tag Cloud chart.
     chart = anychart.tagCloud(data);
         chart.angles([0]);
-    
-    chart.title("Core Competencies");
-    
+  
+    var title = chart.title();
+    title.text("Sales Performance");
+	      
     chart.container("container");
     chart.draw();
 	      
