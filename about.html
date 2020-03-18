@@ -82,7 +82,7 @@
     chart.draw();
 	      
     chart.listen("pointClick", function(e){
-    var url = "//en.wiktionary.org/wiki/" + e.point.get("x");
+    var url = "//en.wikipedia.org/wiki/" + e.point.get("x");
     window.open(url, "_blank");
     });
 
