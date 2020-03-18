@@ -81,13 +81,7 @@
     chart = anychart.tagCloud(data);
         chart.angles([0]);
     
-    var title = chart.title("Core Competencies");
-    // set font size
-     title.fontSize(16);
-    // underline text
-    title.fontDecoration("underline");
-    // set font family 
-    title.fontFamily("Tahoma")
+    chart.title("Core Competencies");
     
     chart.container("container");
     chart.draw();
