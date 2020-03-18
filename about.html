@@ -82,8 +82,28 @@
         chart.angles([0]);
   
       
-    chart.title("Core Competencies");
-	      
+    
+    // adjust chart settings
+  var title = chart.title();
+  // enable title
+  title.enabled(true);
+  // set padding
+  title.padding(5);
+  // set title text
+  title.text("Sales Performance");
+  // settings for title background
+  var titleBackground = chart.title().background();
+  // enable background
+  titleBackground.enabled(true);
+  // set background inner color
+  titleBackground.fill("#FFD700");
+  // set background border
+  titleBackground.stroke("#D8D8D8");
+  // set type of background corners
+  titleBackground.cornerType("round");
+  // set corners size
+  titleBackground.corners(10);
+
     chart.container("container");
     chart.draw();
 	      
