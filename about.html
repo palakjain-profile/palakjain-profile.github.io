@@ -80,8 +80,17 @@
     // Creates Tag Cloud chart.
     chart = anychart.tagCloud(data);
         chart.angles([0]);
-
-    chart.title("Core Competencies");
+    
+    var title = chart.title();
+    // title text
+     title.text("Core Competencies");
+    // set font size
+     title.fontSize(12);
+    // underline text
+    title.fontDecoration("underline");
+    // set font family 
+    title.fontFamily("Tahoma")
+    
     chart.container("container");
     chart.draw();
 	      
