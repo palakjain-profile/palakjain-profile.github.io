@@ -3,7 +3,7 @@ body {
     margin: 60px auto;
     width: 70%;
 }
- nav ul {
+ nav ul, footer ul {
     font-family:'Arial', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
