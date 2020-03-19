@@ -3,7 +3,7 @@ body {
     margin: 60px auto;
     width: 70%;
 }
- nav ul{
+ nav ul, footer ul {
     font-family:'Arial', 'Arial', 'Sans-Serif';
     padding: 0px;
     font-size:5em;
@@ -11,15 +11,11 @@ body {
     font-weight: bold;
     
 }
-nav ul li {
+nav ul li, footer ul li {
     display: inline;
     margin-right: 10px;
 }
 
-footer{
-    margin: 60px auto;
-    width: 70%;
-}
 a {
     text-decoration: none;
     color: #999;
