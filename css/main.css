@@ -4,10 +4,10 @@ body {
     width: 70%;
 }
  nav ul, footer ul {
-    font-family: 'Gill Sans Extrabold', sans-serif;
+    font-family: "Gill Sans Extrabold", sans-serif;
     padding: 0px;
     list-style: none;
-    font-weight: bold;
+    font-weight: normal;
     
 }
 nav ul li, footer ul li{
