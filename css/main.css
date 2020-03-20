@@ -12,9 +12,8 @@ body {
 }
 nav ul li, footer ul li{
     display: inline;
-    margin-right: 20px;
-    color: black;
-}
+    margin-right: 10px;
+   }
 
 a {
     text-decoration: none;
