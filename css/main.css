@@ -8,7 +8,7 @@ body {
     padding: 0px;
     list-style: none;
     font: icon;
-    font-weight: bold;
+    font-weight: normal;
     
 }
 nav ul li, footer ul li{
