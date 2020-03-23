@@ -9,6 +9,7 @@ body {
     list-style: none;
     font: icon;
     font-weight: normal;
+     position:relative;
     
 }
 nav ul li, footer ul li{
