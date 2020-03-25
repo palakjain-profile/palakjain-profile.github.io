@@ -74,7 +74,7 @@
 			<p><script>
       anychart.onDocumentReady(function () {
 	      
-	      var stage = anychart.graphics.create("c1");
+	      var stage = anychart.graphics.create("container");
 	      
     var data = [
 {"x": "Python", "value": 80},
@@ -96,7 +96,7 @@
     chart = anychart.tagCloud(data);
         chart.angles([0]);
   
-      chart.c1(stage);
+      chart.container(stage);
     
     // adjust chart settings
   var title = chart.title();
@@ -121,8 +121,8 @@
   // set corners size
   titleBackground.corners(10);
 
-    chart.container("container");
-	      chart.background().fill("#98e6e6");
+    
+	      
     chart.draw();
 	      
     chart.listen("pointClick", function(e){
