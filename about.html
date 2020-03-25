@@ -73,6 +73,9 @@
 		        <p3 style= "line-height: 1.8; font-size:large; font-style: italic;"><b>Schooling:</b> R. K. Daga Maheshwari Academy, Indore(M.P.).</p3>
 			<p><script>
       anychart.onDocumentReady(function () {
+	      
+	      var stage = anychart.graphics.create("c1");
+	      
     var data = [
 {"x": "Python", "value": 80},
 {"x": "SQL", "value": 44},
@@ -93,7 +96,7 @@
     chart = anychart.tagCloud(data);
         chart.angles([0]);
   
-      
+      chart.c1(stage);
     
     // adjust chart settings
   var title = chart.title();
