@@ -1,48 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Palak Jain: Personal Page</title>  
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
-    <style>
-      html, body, #container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      }
-    </style>    
-  </head>
-  <body>
-    <div id="container"></div>
-    <script>
-      anychart.onDocumentReady(function () {
-    var data = [
-{"x": "Python", "value": 80},
-{"x": "SQL", "value": 44},
-{"x": "Data Science", "value": 40},
-{"x": "Machine Learning", "value": 36},
-{"x": "Informatica", "value": 32},
-{"x": "BigData", "value": 28},
-{"x": "PowerBI", "value": 24},
-{"x": "BlockChain", "value": 20},
-{"x": "Core Java", "value": 56},
-{"x": "Data Mining", "value": 12},
-{"x": "Hadoop", "value": 14},
-{"x": "HTML", "value": 10},
-{"x": "HBase", "value": 15},
-{"x": "MS Excel", "value": 27}
-    ];
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>canvas</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="js/wordcloud2.js"></script>
 
-    // Creates Tag Cloud chart.
-    chart = anychart.tagCloud(data);
-        chart.angles([0]);
+<style type="text/css">    
+#canvas_cloud{
+width: 100%;
+height:500px;
+}
+</style>
 
-    chart.title("Technologies I've worked on");
-    chart.container("container");
-    chart.draw();
-});
-    </script>
-  </body>
+</head>
+
+<body>
+
+<canvas id="canvas_cloud"></canvas>
+
+<script>
+
+var options = 
+{
+  list : [ 
+  ["Pear", "9"],
+  ["Grape", "3"],
+  ["Pineapple", "8"], 
+  ["Apple", "5"]
+  ],
+  gridSize: Math.round(16 * document.getElementById('canvas_cloud').offsetWidth / 1024),
+  weightFactor: function (size) {
+    return Math.pow(size, 1.9) * document.getElementById('canvas_cloud').offsetWidth / 1024;
+  }
+}
+
+WordCloud(document.getElementById('canvas_cloud'), options); 
+
+</script>
+
+</body>
 </html>
