@@ -35,13 +35,6 @@ p {
     color: #333;
 }
 footer {
-    margin-top:25px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    position:fixed;
-    left:0;
-    bottom:0;
-    width:100%;
     font-size: 1em;
 }
 
