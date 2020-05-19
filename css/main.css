@@ -35,8 +35,12 @@ p {
     color: #333;
 }
 footer {
-    bottom: 0;
-    position: relative; //changed to relative from fixed also works if position is not there
+    margin-top:25px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    position:fixed;
+    left:0;
+    bottom:0;
     width:100%;
     font-size: 1em;
 }
