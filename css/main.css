@@ -35,7 +35,9 @@ p {
     color: #333;
 }
 footer {
-   
+    bottom: 0;
+    position: relative; //changed to relative from fixed also works if position is not there
+    width:100%;
     font-size: 1em;
 }
 
