@@ -62,11 +62,34 @@
   			 vertical-align: middle;
   			 width: 100%;
 			 }
+			.container:hover .overlay {
+			  opacity: 1;
+			}
+
+			.text {
+			  color: white;
+			  font-size: 20px;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  -webkit-transform: translate(-50%, -50%);
+			  -ms-transform: translate(-50%, -50%);
+			  transform: translate(-50%, -50%);
+			  text-align: center;
+			}
+			.overlay {
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  left: 0;
+			  right: 0;
+			  height: 100%;
+			  width: 100%;
+			  opacity: 0;
+			  transition: .5s ease;
+			  background-color: #008CBA;
+			}
 			
-			.column img:hover {
-                         transform: scale(1.2);
-			opacity: 0.3;
-                         }
 
 			/* Responsive layout - makes a two column-layout instead of four columns */
 			@media screen and (max-width: 800px) {
@@ -130,7 +153,12 @@
 	    <!-- Photo Grid -->
 	    <div class="row"> 
   		    <div class="column">
+			    <div class="container">
 			    <a href="pr1"><img src="1.jpg" style="width:100%" onContextMenu="return false;"></a>
+			    <div class="overlay">
+   			    <div class="text">Project 1</div>
+                            </div>	    
+			    </div>
 			    <a href="pr3"><img src="5.jpg" style="width:100%" onContextMenu="return false;"></a>
     		    <img src="9.jpg" style="width:100%" onContextMenu="return false;">
     		    
