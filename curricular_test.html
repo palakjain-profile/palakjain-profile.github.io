@@ -51,9 +51,9 @@
 	    </div>
 	    
 	    <div class="w3-content w3-section" style="max-width:500px">
-		  <img class="Slides" src="1.jpg" style="width:100%" onContextMenu="return false;">
-		  <img class="Slides" src="2.jpg" style="width:100%" onContextMenu="return false;">
-		  <img class="Slides" src="3.jpg" style="width:100%" onContextMenu="return false;">
+		  <img class="Slides w3-animate-top" src="1.jpg" style="width:100%" onContextMenu="return false;">
+		  <img class="Slides w3-animate-bottom" src="2.jpg" style="width:100%" onContextMenu="return false;">
+		  <img class="Slides w3-animate-right" src="3.jpg" style="width:100%" onContextMenu="return false;">
 	    </div>
 	    
 	    
@@ -74,7 +74,7 @@ It is like mental and physical relaxation to me.
 		    
 	    </div>	    
 	    
-	    <script>
+	   <script>
 		var myIndex = 0;
 		carousel();
 
@@ -87,9 +87,10 @@ It is like mental and physical relaxation to me.
 		  myIndex++;
 		  if (myIndex > x.length) {myIndex = 1}    
 		  x[myIndex-1].style.display = "block";  
-		  setTimeout(carousel, 2000); // Change image every 2 seconds
+		  setTimeout(carousel, 2500);    
 		}
 		</script>
+
 	    
      </body>
     
