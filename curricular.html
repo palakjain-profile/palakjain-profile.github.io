@@ -4,7 +4,9 @@
 		<title>Palak Jain - Personal Page</title>
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
-				
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style>
 			body{
@@ -22,6 +24,11 @@
 			border-bottom: 1px solid #000;
 			margin-left: -8px;
 			}
+			.img_background{
+				width: 100%;
+				height: 500px;
+				overflow: hidden;
+			}
 			
 			.contactdetails{
 			text-align: center;
@@ -29,49 +36,7 @@
                         width: 70%;
 			}
 		
-			* {
-  			box-sizing: border-box;
-			}
-
-			.row {
-  			display: -ms-flexbox; /* IE10 */
-  			display: flex;
-  			-ms-flex-wrap: wrap; /* IE10 */
-  			flex-wrap: wrap;
- 			padding: 0 4px;
-			}
-
-			/* Create four equal columns that sits next to each other */
-			.column {
- 			 -ms-flex: 25%; /* IE10 */
- 			 flex: 25%;
- 			 max-width: 25%;
- 			 padding: 0 4px;
-			 }
-
-			 .column img {
- 			 margin-top: 8px;
-  			 vertical-align: middle;
-  			 width: 100%;
-			 }
-
-			/* Responsive layout - makes a two column-layout instead of four columns */
-			@media screen and (max-width: 800px) {
-  				.column {
-    				-ms-flex: 50%;
-    			 	flex: 50%;
-    			 	max-width: 50%;
-  				}
-			}
-
-			/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-			@media screen and (max-width: 600px) {
-  				.column {
-    				-ms-flex: 100%;
-    				 flex: 100%;
-    				 max-width: 100%;
-  				 }
-			 }
+			
 		
     	   </style>
     </head>
@@ -84,11 +49,20 @@
 				<li ><a href="about"><b>ABOUT</b></a></li>
 				<li ><a href="Resume_web.pdf"><b>RESUME</b></a></li>
 				<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
-				<li><a href="curricular_test"><b>CO-CURRICULAR INTERESTS</b></a></li>
+				<li><a href="curricular"><b>CO-CURRICULAR INTERESTS</b></a></li>
 
     				</ul>
 			</nav>
 	    </div>
+	    <div class="img_background">
+	    <div class="w3-content w3-section" style="max-width:100%">
+		  <img class="Slides w3-animate-right" src="ns.jpg" style="height:500px; width:100%" onContextMenu="return false;">
+		    <img class="Slides w3-animate-right" src="garba.jpg" style="height:500px; width:100%" onContextMenu="return false;">
+		    
+	    </div> 
+	    </div>
+	    
+	    
 	    <div class="c1">
 	    <p><i>One of the best way to use our spare time is pursuing the hobby. In this busy and little stressful life, it is very important to have some hobby which brings us joy and enriches our lives. 
 For me, Dance is something which makes me happy and full of positive energy. It also helps to increase my self esteem and encourages me to learn and try something new.
@@ -105,38 +79,24 @@ It is like mental and physical relaxation to me.
 		    
 	    </div>	    
 	    
-	    <h2 style= "text-align: center; font-variant: small-caps; font-size:xx-large;">Glimpse of my dance journey</h2>
+	   <script>
+		var myIndex = 0;
+		carousel();
+
+		function carousel() {
+		  var i;
+		  var x = document.getElementsByClassName("Slides");
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  myIndex++;
+		  if (myIndex > x.length) {myIndex = 1}    
+		  x[myIndex-1].style.display = "block";  
+		  setTimeout(carousel, 2500);    
+		}
+		</script>
+
 	    
-	    <!-- Photo Grid -->
-	    <div class="row"> 
-  		    <div class="column">
-    		    <img src="1.jpg" style="width:100%" onContextMenu="return false;">
-    		    <img src="5.jpg" style="width:100%" onContextMenu="return false;">
-    		    <img src="9.jpg" style="width:100%" onContextMenu="return false;">
-    		    <img src="16.jpg" style="width:100%" onContextMenu="return false;">
-    
-		    </div>
-		    <div class="column">
-			    <img src="2.jpg" style="width:100%" onContextMenu="return false;">
-			    <img src="15.jpg" style="width:100%" onContextMenu="return false;">
-			    <img src="10.jpg" style="width:100%" onContextMenu="return false;">
-			    
-
-		    </div>  
-
-		    <div class="column">
-			    <img src="3.jpg" style="width:100%" onContextMenu="return false;">
-			    <img src="7.jpg" style="width:100%" onContextMenu="return false;">
-			    <img src="8.jpg" style="width:100%" onContextMenu="return false;">
-		    </div>
-		    
-		     <div class="column">
-			     <img src="4.jpg" style="width:100%" onContextMenu="return false;">
-			     
-			     <img src="14.jpg" style="width:100%" onContextMenu="return false;">
-
-		     </div>
-      	     </div>
      </body>
     
      <footer>
