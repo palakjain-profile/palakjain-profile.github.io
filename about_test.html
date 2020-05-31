@@ -18,13 +18,9 @@
     		padding : 0;
 		}
 		#container {
-		     position: absolute;
- 		    width: 65%;
- 		    height: 75%;
- 		    padding-top: 150px;
-  		    padding-right: 25px;
-                    padding-bottom: 50px;
-                    padding-left: 25px; 		    
+		     height: 100vh;
+		     width: 100vw;
+		     margin: 0 auto; 		    
 		   }
 		
 		.e1,.e2,.e3{
@@ -81,64 +77,160 @@
 		        <p3 style= "line-height: 1.8; font-size:large; font-style: italic;"><b>Schooling:</b> R. K. Daga Maheshwari Academy, Indore(M.P.).</p3>
 			</div>
 			<p><script>
-      anychart.onDocumentReady(function () {
-    var data = [
-{"x": "Python", "value": 80},
-{"x": "SQL", "value": 44},
-{"x": "Machine Learning", "value": 36},
-{"x": "Informatica", "value": 32},
-{"x": "BigData", "value": 28},
-{"x": "PowerBI", "value": 24},
-{"x": "BlockChain", "value": 20},
-{"x": "Core Java", "value": 56},
-{"x": "Data Mining", "value": 12},
-{"x": "Hadoop", "value": 14},
-{"x": "HTML", "value": 10},
-{"x": "HBase", "value": 15},
-{"x": "MS Excel", "value": 27}
-    ];
+      var config = {
+    trace: true,
+    spiralResolution: 1, //Lower = better resolution
+    spiralLimit: 360 * 5,
+    lineHeight: 0.8,
+    xWordPadding: 0,
+    yWordPadding: 3,
+    font: "sans-serif"
+}
 
-    // Creates Tag Cloud chart.
-    chart = anychart.tagCloud(data);
-        chart.angles([0]);
-  
-      
-    
-    // adjust chart settings
-  var title = chart.title();
-  // enable title
-  title.enabled(true);
-  title.fontSize(35);
-	      title.letterSpacing(8);
-  title.fontFamily('Bangers');
-  // set padding
-  title.padding(5);
-  // set title text
-  title.text("CORE COMPETENCIES");
-  // settings for title background
-  var titleBackground = chart.title().background();
-  // enable background
-  
-  // set background inner color
-  titleBackground.fill("#00004d");
-  // set background border
-  titleBackground.stroke("#00004d");
-  // set type of background corners
-  titleBackground.cornerType("round");
-  // set corners size
-  titleBackground.corners(10);
+var words = ["words", "are", "cool", "and", "so", "are", "you", "inconstituent", "funhouse!", "apart", "from", "Steve", "fish"].map(function(word) {
+    return {
+        word: word,
+        freq: Math.floor(Math.random() * 50) + 10
+    }
+})
 
-    chart.container("container");
-	      chart.background().fill("#98e6e6");
-	      chart.background().stroke("8 Black");
-    chart.draw();
- 	      
-    chart.listen("pointClick", function(e){
-    var url = "//en.wikipedia.org/wiki/" + e.point.get("x");
-    window.open(url, "_blank");
-    });
-
+words.sort(function(a, b) {
+    return -1 * (a.freq - b.freq);
 });
+
+var cloud = document.getElementById("word-cloud");
+cloud.style.position = "relative";
+cloud.style.fontFamily = config.font;
+
+var traceCanvas = document.createElement("canvas");
+traceCanvas.width = cloud.offsetWidth;
+traceCanvas.height = cloud.offsetHeight;
+var traceCanvasCtx = traceCanvas.getContext("2d");
+cloud.appendChild(traceCanvas);
+
+var startPoint = {
+    x: cloud.offsetWidth / 2,
+    y: cloud.offsetHeight / 2
+};
+
+var wordsDown = [];
+/* ======================= END SETUP ======================= */
+
+
+
+
+
+/* =======================  PLACEMENT FUNCTIONS =======================  */
+function createWordObject(word, freq) {
+    var wordContainer = document.createElement("div");
+    wordContainer.style.position = "absolute";
+    wordContainer.style.fontSize = freq + "px";
+    wordContainer.style.lineHeight = config.lineHeight;
+/*    wordContainer.style.transform = "translateX(-50%) translateY(-50%)";*/
+    wordContainer.appendChild(document.createTextNode(word));
+
+    return wordContainer;
+}
+
+function placeWord(word, x, y) {
+
+    cloud.appendChild(word);
+    word.style.left = x - word.offsetWidth/2 + "px";
+    word.style.top = y - word.offsetHeight/2 + "px";
+
+    wordsDown.push(word.getBoundingClientRect());
+}
+
+function trace(x, y) {
+//     traceCanvasCtx.lineTo(x, y);
+//     traceCanvasCtx.stroke();
+    traceCanvasCtx.fillRect(x, y, 1, 1);
+}
+
+function spiral(i, callback) {
+    angle = config.spiralResolution * i;
+    x = (1 + angle) * Math.cos(angle);
+    y = (1 + angle) * Math.sin(angle);
+    return callback ? callback() : null;
+}
+
+function intersect(word, x, y) {
+    cloud.appendChild(word);    
+    
+    word.style.left = x - word.offsetWidth/2 + "px";
+    word.style.top = y - word.offsetHeight/2 + "px";
+    
+    var currentWord = word.getBoundingClientRect();
+    
+    cloud.removeChild(word);
+    
+    for(var i = 0; i < wordsDown.length; i+=1){
+        var comparisonWord = wordsDown[i];
+        
+        if(!(currentWord.right + config.xWordPadding < comparisonWord.left - config.xWordPadding ||
+             currentWord.left - config.xWordPadding > comparisonWord.right + config.wXordPadding ||
+             currentWord.bottom + config.yWordPadding < comparisonWord.top - config.yWordPadding ||
+             currentWord.top - config.yWordPadding > comparisonWord.bottom + config.yWordPadding)){
+            
+            return true;
+        }
+    }
+    
+    return false;
+}
+/* =======================  END PLACEMENT FUNCTIONS =======================  */
+
+
+
+
+
+/* =======================  LETS GO! =======================  */
+(function placeWords() {
+    for (var i = 0; i < words.length; i += 1) {
+
+        var word = createWordObject(words[i].word, words[i].freq);
+
+        for (var j = 0; j < config.spiralLimit; j++) {
+            //If the spiral function returns true, we've placed the word down and can break from the j loop
+            if (spiral(j, function() {
+                    if (!intersect(word, startPoint.x + x, startPoint.y + y)) {
+                        placeWord(word, startPoint.x + x, startPoint.y + y);
+                        return true;
+                    }
+                })) {
+                break;
+            }
+        }
+    }
+})();
+/* ======================= WHEW. THAT WAS FUN. We should do that again sometime ... ======================= */
+
+
+
+/* =======================  Draw the placement spiral if trace lines is on ======================= */
+(function traceSpiral() {
+    
+    traceCanvasCtx.beginPath();
+    
+    if (config.trace) {
+        var frame = 1;
+
+        function animate() {
+            spiral(frame, function() {
+                trace(startPoint.x + x, startPoint.y + y);
+            });
+
+            frame += 1;
+
+            if (frame < config.spiralLimit) {
+                window.requestAnimationFrame(animate);
+            }
+        }
+
+        animate();
+    }
+})();
+
        </script>
 	</p>
 		       
