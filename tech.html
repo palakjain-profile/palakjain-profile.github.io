@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,17 +19,8 @@
 				margin-left: -8px;
 			}
 					
-			.left {
-				width: 70%; 
-				padding: 0 0 0 0;
-				float: left}
-			div.right {
-				background-color: #CFCFCF;
-				width: 30%; 
-				height: 1800px;
-				padding: 0 0 0 0;
-				float: left}
 			
+					
 			.c1{
 				margin-left: 8px;
 				text-align: center;
@@ -43,14 +33,16 @@
 			margin: 60px auto;
                         width: 70%;
 			}
-		
+			.practice{
+				text-align:center;
+			}
 			
 			 		
 			.container {
 			  position: relative;
-				margin-left: 15%;
-				width: 75%;
-				height:100%;
+				width: 100%;
+				height:50%;
+				overflow:hidden;
 				}
 			
 			.container:hover .overlay {
@@ -87,6 +79,49 @@
 			border: 1px solid #006666;
 			}
 			
+			* {
+  			box-sizing: border-box;
+			}
+
+			.row {
+  			display: -ms-flexbox; /* IE10 */
+  			display: flex;
+  			-ms-flex-wrap: wrap; /* IE10 */
+  			flex-wrap: wrap;
+ 			padding: 0 4px;
+			}
+
+			/* Create four equal columns that sits next to each other */
+			.column {
+ 			 -ms-flex: 50%; /* IE10 */
+ 			 flex: 50%;
+ 			 max-width: 50%;
+ 			 padding: 0 1%;
+			 }
+
+			 .column img {
+ 			 
+  			 vertical-align: middle;
+  			 width: 100%;
+			 }
+
+			/* Responsive layout - makes a two column-layout instead of four columns */
+			@media screen and (max-width: 800px) {
+  				.column {
+    				-ms-flex: 50%;
+    			 	flex: 50%;
+    			 	max-width: 50%;
+  				}
+			}
+
+			/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+			@media screen and (max-width: 600px) {
+  				.column {
+    				-ms-flex: 100%;
+    				 flex: 100%;
+    				 max-width: 100%;
+  				 }
+			 }
 
 					
     	   </style>
@@ -106,11 +141,12 @@
 	    </div>
 	    
 	    
-	    <div class="left">
+	    
 	    <h2 style= "text-align: center; font-variant: small-caps; font-size:xx-large;">Projects</h2>
 	    
 	    <!-- Photo Grid -->
-		    
+	    <div class="row"> 
+  	    <div class="column">
 	    <div class="container">             
 		<video class="video" width=100% autoplay loop style="margin:0 auto;">
 		<source src="video_pr1.mp4" type="video/mp4">
@@ -123,27 +159,29 @@
                  </div>
 		</a>
 	    </div>
-	    
-			    
 	    <div class="container">
-		 <a href="pr3"><img src="fig_pr2.png" style="width:100%; margin-top:1em;" onContextMenu="return false;"></a>
+		  <a href="pr2"><img src="pr2_wp.jpg" style="width:100% ;border: 1px solid #b30000" onContextMenu="return false;"></a>
+		  <a href="pr2"><div class="overlay">
+		  <div class="text"><b>US Recessions Insight : </b><br><br> An article focused on GDP and Unemployment rate   </div>
+                  </div>
+		  </a>
+	    </div>
+			    
+	   
+	</div>
+	    
+	<div class="column">	
+		 <div class="container">
+		 <a href="pr3"><img src="fig_pr2.png" style="width:100%;" onContextMenu="return false;"></a>
 	         <a href="pr3"><div class="overlay">
 		 <div class="text"><b>Handwritten Digit Recognizer : </b><br><br> A machine learning project using Google Colab</div>
                  </div>
 		 </a>
 	    </div>
 	    
-			    
-	    <div class="container">
-		  <a href="pr2"><img src="pr2_wp.jpg" style="width:100% ;margin-top:1em;border: 1px solid #b30000" onContextMenu="return false;"></a>
-		  <a href="pr2"><div class="overlay">
-		  <div class="text"><b>US Recessions Insight : </b><br><br> An article focused on GDP and Unemployment rate   </div>
-                  </div>
-		  </a>
-	    </div>
 	 
 	    <div class="container">
-		  <a href="pr4"><img src="pr4_wp.jpg" style="width:100%; margin-top:1em;" onContextMenu="return false;"></a>
+		  <a href="pr4"><img src="pr4_wp.jpg" style="width:100%;" onContextMenu="return false;"></a>
 		  <a href="pr4"><div class="overlay">
 		  <div class="text"><b>Telecommunication Project: </b><br><br> Radio Resource Management for 5G and Beyond Networks.</div>
                   </div>
@@ -151,26 +189,12 @@
 	    </div>
 		    
 	    
-		     		    
-    
+		 </div>   
 	    </div>
-		    
-		    		    
-		    <div class="right">
+    
+	   
 	    <div class="c1">
-		    <h2 style= "text-align: center; font-variant: small-caps; font-size:xx-large;">Practice Platforms</h2>
-	    
-		        <nav>
-	    		<ul>
-				
-				<br><li style="border-style: inset; padding: 3% 20%; margin-bottom: 50px; margin-top: 100px;"><a href="https://www.hackerrank.com/jainpalak741">HACKERRANK</a></li>
-	        		<br><br><br><br><li style="border-style: inset; padding: 3% 22%; margin-bottom: 50px; margin-top: 50px;"><a href="about">LEETCODE</a></li>
-				<br><br><br><br><li style="border-style: inset; padding: 3% 24%; margin-top: 50px;"><a href="about">KAGGLE</a></li>
-				
-
-			
-    			</ul>
-		         </nav><br><br><br>
+		    
 		    <h2 style= "text-align: center; font-variant: small-caps; font-size:xx-large;">Certifications</h2>
 		    <ul>
 				<li><p style="margin-bottom: -10px; text-align:left; font-style: italic;"> Data Science & Machine Learning Bootcamp, Udemy. </p></li>
@@ -179,9 +203,27 @@
 	    
 		    </ul>
 		    
-	    </div>	
+	  	
+	    </div>
+	    <div class= "practice">
+	    <h2 style= "text-align: center; font-variant: small-caps; font-size:xx-large;">Practice Platforms</h2>
+	    
+		        <nav>
+	    		<ul>
+				
+				<li><a href="https://www.hackerrank.com/jainpalak741">HACKERRANK</a></li>
+	        		<li><a href="about">LEETCODE</a></li>
+				<li><a href="about">KAGGLE</a></li>
+				
+
+			
+    			</ul>
+	    </nav>
 	    </div>
 	    
+     </body>
+    
+     <footer>
 	    <hr>
 	     <div class="contactdetails">
 	     	  <nav>
@@ -227,12 +269,7 @@
 		</nav>		  
 	     </div>	
 		    
-      	    
-     </body>
-    
-     <footer>
-	     
+      	     
 	     
     </footer>
 </html>
-
