@@ -17,11 +17,7 @@
     		padding: 0;
 		color: black;
 		}
-		.options{
-		font-size: 20px;
-		border-bottom: 1px solid #000;
-		margin-left: -8px;
-		}
+		
 		.container{
 			padding-top: 5%;
 		}
@@ -30,6 +26,33 @@
 		}
 		img {
   		
+		}
+		.options {
+		  overflow: hidden;
+		  background-color: #333;
+		}
+
+		.options a {
+		  float: left;
+		  display: block;
+		  color: #f2f2f2;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		  font-size: 17px;
+		}
+		.options a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+
+		.options a.active {
+		  background-color: #4CAF50;
+		  color: white;
+		}
+
+		.options .icon {
+		  display: none;
 		}
 		@media screen and (max-width: 600px) {
 		  .options a:not(:first-child) {display: none;}
