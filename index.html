@@ -32,7 +32,47 @@
 		img {
   		
 		}
-		
+		nav {
+		  display: block;
+		  width: 960px;
+		  margin: 100px auto;
+		  text-align: center;
+		  ul {
+		    list-style: none;
+		  }
+		  li {
+		    display: inline-block;
+		  }
+		  a {
+		    display: inline-block;
+		    background: #333;
+		    color: white;
+		    padding: 5px 15px;
+		    border: 1px solid white;
+		    text-decoration: none;
+		    &:hover {
+		      border: 1px solid red;
+		      background: red;
+		    }
+		    &:active {
+		      background: blue;
+		    }
+		  }
+		  select {
+		    display: none;
+		  }
+		}
+
+		@media (max-width: 960px) {
+		  nav {
+		    ul {
+		      display: none;
+		    }
+		    select {
+		      display: inline-block;
+		    }
+		  }
+		}
 
 	</style>
 	</head>
@@ -50,7 +90,35 @@
     			</ul>
 			</nav>
 			</div>
-		
+		  $(function() {
+
+		  // Create the dropdown base
+		  $("<select />").appendTo("nav");
+
+		  // Create default option "Go to..."
+		  $("<option />", {
+		    "selected": "selected",
+		    "value"   : "",
+		    "text"    : "Go to..."
+		  }).appendTo("nav select");
+
+		  // Populate dropdown with menu items
+		  $("nav a").each(function() {
+		    var el = $(this);
+		    $("<option />", {
+		      "value"   : el.attr("href"),
+		      "text"    : el.text()
+		    }).appendTo("nav select");
+		  });
+
+		   // To make dropdown actually work
+		   // To make more unobtrusive: https://css-tricks.com/4064-unobtrusive-page-changer/
+		  $("nav select").change(function() {
+		    window.location = $(this).find("option:selected").val();
+		  });
+
+		});
+
 		<div class= "center">
 		<div class="container">
     		<div class="blurb">
