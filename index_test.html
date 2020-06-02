@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Palak Jain - Personal Page</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+		<link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<style>
+		body{
+		
+  		width: 100%;
+    		height: 100%;
+      		margin: 0;
+    		padding: 0;
+		color: black;
+		}
+		.options{
+		font-size: 20px;
+		border-bottom: 1px solid #000;
+		margin-left: -8px;
+		}
+		.container{
+			padding-top: 60px;
+		}
+		.center{
+		text-align: center;
+		}
+		img {
+  		
+		}
+	</style>
+	</head>
+	<body>
+		<div class= "options">
+			<nav>
+			<ul>
+			<li style="color: white; font-size: 2em; font-family: Impact, Charcoal, serif; background: #000000; padding: 1.2% 2.5%; "><a href="https://jainpalak741.github.io/" style="color:white;">PALAK JAIN</a></li>
+			<li ><a href="/"><b>HOME</b></a></li>
+			<li ><a href="about"><b>ABOUT</b></a></li>
+			<li ><a href="Resume_web.pdf"><b>RESUME</b></a></li>
+			<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
+			<li><a href="curricular"><b>HOBBIES</b></a></li>
+    			</ul>
+			</nav>
+			</div>
+		<div class= "center">
+		<div class="container">
+    		<div class="blurb">
+			<img src= "Palak1.jpg" width = "350" height= "350" alt= "Palak Jain" border = "5">
+        		<h2 style="margin-bottom:-18px; margin-top:-10px;font-family:'Architects Daughter'; font-size:3em ">Palak Jain</h2>
+			<h2 style="margin-bottom:-3px; font-variant: small-caps; font-family: "Courier New", Courier, monospace">
+				<span
+     class="txt-rotate"
+     data-period="2000"
+     data-rotate='[ "BigData", "Machine Learning", "Data Science", "BlockChain" ]'></span>
+			</h2>
+			
+			<p style="font-family:cursive;">To me, the only joy in the world is to begin. Explore | Learn | Grow . </p>
+			
+    		</div><!-- /.blurb -->
+		</div><!-- /.container -->
+			<script>
+				var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+			</script>
+		<footer>
+		<hr>	
+    		<ul>
+			
+			
+			<li><a href="https://www.linkedin.com/in/palak-jain-83358215b/" target="_blank">
+				<span class="fa-stack fa-2x">
+  				<i class="fa fa-circle fa-stack-2x"></i>
+ 				<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+				</span>
+				</a></li>
+			
+			
+        		<li><a href="mailto:jainpalak741@gmail.com" target="_blank">
+				<span class="fa-stack fa-2x">
+  				<i class="fa fa-circle fa-stack-2x"></i>
+ 				<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+				</span>
+				</a></li>
+			
+			
+			
+			<li><a href="https://github.com/jainpalak741" target="_blank">
+				<span class="fa-stack fa-2x">
+  				<i class="fa fa-circle fa-stack-2x"></i>
+ 				<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+				</span>
+				</a></li>
+			
+			<li><a href="https://www.facebook.com/palak.jain.92102" target="_blank">
+				<span class="fa-stack fa-2x">
+  				<i class="fa fa-circle fa-stack-2x"></i>
+ 				<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+				</span>
+				</a></li>
+			
+			<li><a href="https://www.instagram.com/jainpalak741/" target="_blank">
+				<span class="fa-stack fa-2x">
+  				<i class="fa fa-circle fa-stack-2x"></i>
+ 				<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+				</span>
+				</a></li>
+			</ul>
+		</footer>
+		</div>
+	</body>
+
+</html>
