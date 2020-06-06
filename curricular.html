@@ -5,6 +5,7 @@
 		<!-- link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
 		<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,25 +35,96 @@
 			margin: 60px auto;
                         width: 70%;
 			}
+		        .topnav {
+		  overflow: hidden;
+		border-bottom: 1px solid #000;
+		 }
+
 		
+		.active {
+		  background-color: #4CAF50;
+		  color: grey;
+		}
+
+		.topnav .icon {
+		  display: none;
+		}
+
+		
+		.topnav li:hover {
+		  background-color: #555;
+		  color: black;
+		}
+
+		
+		@media screen and (max-width: 820px) {
+		  .topnav li:not(:first-child) {
+		    display: none;
+		  }
+		  .topnav a.icon {
+		    float: right;
+		    display: block;
+			  padding: 1%, 2%;
+		    margin-right:10%;
+		    }
+		}
+
+		@media screen and (max-width: 820px) {
+		  .topnav.responsive {position: relative;}
+		  .topnav.responsive .icon {
+		    position: absolute;
+		    right: 0;
+		    top: 0;
+		  }
+		  .topnav.responsive li {
+		  	    
+		    text-align: left;
+		  }
+		 .topnav.responsive li:not(:first-child){
+		   float: none;
+		   text-align: right;
+		    display: block;
+		    
+		    }	
+		  .topnav.responsive .dropdown {float: none;}
+		  .topnav.responsive .dropdown-content {position: relative;}
+		  .topnav.responsive .dropdown .dropbtn {
+		    display: block;
+		    width: 100%;
+		    text-align: left;
+		  }
+		}
+
 			
 		
     	   </style>
     </head>
     <body>
-	    <div class= "options">
+	    <div class= "topnav" id="myTopnav">
 			<nav>
-				<ul>
-				<li style="color: white; font-size: 2em; font-family: Impact, Charcoal, serif; background: #000000; padding: 1.2% 2.5%; "><a href="https://jainpalak741.github.io/" style="color:white;">PALAK JAIN</a></li>
-				<li ><a href="/"><b>HOME</b></a></li>
-				<li ><a href="about"><b>ABOUT</b></a></li>
-				<li ><a href="Resume_web.pdf"><b>RESUME</b></a></li>
-				<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
-				<li><a href="curricular"><b>HOBBIES</b></a></li>
-
-    				</ul>
+			<ul>
+			<li style="color: white; margin-left: -8px; font-size: 2em; font-family: Impact, Charcoal, serif; background: #000000; padding: 1.2% 2.5%; "><a href="https://jainpalak741.github.io/" style="color:white;">PALAK JAIN</a></li>
+			<li><a href="/"><b>HOME</b></a></li>
+			<li><a href="about"><b>ABOUT</b></a></li>
+			<li><a href="Resume_web.pdf"><b>RESUME</b></a></li>
+			<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
+			<li><a href="curricular"><b>HOBBIES</b></a></li>
+			<a href="javascript:void(0);" style="font-size:15px; margin-left: 10px" class="icon" onclick="myFunction()">&#9776;</a>
+    			</ul>
 			</nav>
-	    </div>
+			</div>
+		
+				
+		        <script>
+			function myFunction() {
+			  var x = document.getElementById("myTopnav");
+			  if (x.className === "topnav") {
+			    x.className += " responsive";
+			  } else {
+			    x.className = "topnav";
+			  }
+			}
+			</script>
 	    <div class="img_background">
 	    <div class="w3-content w3-section" style="max-width:100%">
 		  <img class="Slides w3-animate-right" src="ns.jpg" style="height:100%; width:100%" onContextMenu="return false;">
