@@ -109,14 +109,25 @@
 		    text-align: left;
 		  }
 		}
+		.main{
+		    display:flex;
+		    flex-wrap:wrap;
+		    justify-content: center;
+		}
 		
 		@media screen and (max-width:820px){
-		    .main {
-			display: flex;
-			flex-direction: column-reverse;
-		    }
+		  .main {
+		      justify-content: space-between;
+		  }
+
+		  .left {
+		      order:2;
+		  }
+
+		  .right {
+		      order:1;
+		  }
 		}
-		</style>
 		
   </head>
 	
