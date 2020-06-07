@@ -29,6 +29,9 @@
 		.e1,.e2,.e3{
 			margin-left: 8px;
 		}
+		.main{
+			width=100%
+		}
 		
 		.contactdetails{
 			text-align: center;
@@ -36,12 +39,7 @@
                         width: 70%;
 		}
 		
-		.test{
-			width:65%;
-			height: 72vh;
-			
-			overflow:hidden;
-		}
+		
 		.left {
 			 -ms-flex: 70%; /* IE10 */
  			 flex: 70%;
@@ -54,11 +52,14 @@
  			 max-width: 50%;
  			 float: left}
 		@media screen and (max-width: 820px) {
+				.main{
+				flex-direction: column-reverse;
+				}
   				.left, .right {
     				-ms-flex: 100%;
     				 flex: 100%;
     				 max-width: 100%;
-				flex-direction: column-reverse;	
+					
   				 }
 			 }
 		
@@ -153,16 +154,16 @@
 			}
 			</script>
 		
-		
+		<div class="main">
 		<div class="left">
 			<div class= "e3">
 			<h2 ><u>Background</u></h2>
 			<p2 style="font-size:large;font-style: italic;"><b>Undergraduation:</b> Bachelors of Engineering in Electronics and Telecommunication from Institute of Engineering and Technology(IET), DAVV Indore (2014-2018).</br></p2> 
 		        <p3 style= "line-height: 1.8; font-size:large; font-style: italic;"><b>Schooling:</b> R. K. Daga Maheshwari Academy, Indore(M.P.).</p3>
 			</div>
-		<div class="test">
+		
  		<div id="container"></div>
-		</div>	
+		
 			<p><script>
       anychart.onDocumentReady(function () {
     var data = [
@@ -228,7 +229,7 @@
  		<div class="right"><p><img src="palak2.jpg" alt="Palak Jain" style="border-radius: 50px"> </p>
 		<p style= "font-style: italic;"> Hi! I am Palak Jain. Always being an avid learner, I get very inclined towards uncovering and experimenting with new things which ultimately lead my enthusiasm in BigData and Data Science. In addition, I believe my passion towards Dance has contributed a lot to build this quality of learnedness. 
         </p></div>
-		
+		</div>
 		</body>		
              
 		<footer>
