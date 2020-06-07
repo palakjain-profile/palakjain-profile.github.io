@@ -45,7 +45,7 @@
   			display: flex;
   			-ms-flex-wrap: wrap; /* IE10 */
   			flex-wrap: wrap;
- 			padding: 0 4px;
+			padding: 0 4px;
 			}
 		
 		.left {
@@ -60,6 +60,9 @@
  			 max-width: 30%;
  			 float: left}
 		@media screen and (max-width: 820px) {
+				.row{
+			flex-direction: column-reverse;
+			}
 				
   				.left, .right {
     				-ms-flex: 100%;
