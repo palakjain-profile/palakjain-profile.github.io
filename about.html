@@ -206,7 +206,8 @@
     // Creates Tag Cloud chart.
     chart = anychart.tagCloud(data);
         chart.angles([0]);
-  
+	 var tooltip = chart.tooltip();
+	tooltip.enabled(false); 
       
     
     // adjust chart settings
