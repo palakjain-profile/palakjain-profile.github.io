@@ -50,7 +50,7 @@
 				overflow:hidden;
 				}
 			
-			.container:hover .overlay {
+			.container:hover .overlay_pr {
 				opacity: 1;
 			}
 
@@ -67,7 +67,7 @@
 			  transform: translate(-50%, -50%);
 			  text-align: center;
 			}
-			.overlay {
+			.overlay_pr {
 			  position: absolute;
 			  top: 0;
 			  bottom: 0;
@@ -187,7 +187,63 @@
 		    text-align: left;
 		  }
 		}
+		.overlay {
+		  height: 0%;
+		  width: 100%;
+		  position: fixed;
+		  z-index: 1;
+		  top: 0;
+		  left: 0;
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0, 0.9);
+		  overflow-y: hidden;
+		  transition: 0.5s;
+		}
 
+		.overlay-content {
+		  position: relative;
+		  top: 25%;
+		  width: 100%;
+		  text-align: center;
+		  margin-top: 30px;
+		}
+
+		.overlay a {
+		  padding: 8px;
+		  text-decoration: none;
+		  font-size: 36px;
+		  color: #818181;
+		  display: block;
+		  transition: 0.3s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+		  color: #f1f1f1;
+		}
+
+		.overlay .closebtn {
+		  position: absolute;
+		  top: 20px;
+		  right: 45px;
+		  font-size: 60px;
+		}
+
+		@media screen and (max-width: 820px) {
+		   .topnav li:not(:first-child) {
+		    display: none;
+		  }
+		  .topnav a.icon {
+		    float: right;
+		    display: block;
+		   }	
+		  .overlay {overflow-y: auto;}
+		  .overlay a {font-size: 20px}
+		  .overlay .closebtn {
+		  font-size: 40px;
+		  top: 15px;
+		  right: 35px;
+		  }
+		}
 					
     	   </style>
     </head>
@@ -201,20 +257,30 @@
 			<li><a href="resume"><b>RESUME</b></a></li>
 			<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
 			<li><a href="curricular"><b>HOBBIES</b></a></li>
-			<a href="javascript:void(0);" style="font-size:15px; margin-left: 10px" class="icon" onclick="myFunction()">&#9776;</a>
-    			</ul>
+			<a style="font-size:30px;cursor:pointer; float:right; margin-right:2%;" class="icon" onclick="openNav()">&#9776;</a>
+			</ul>
 			</nav>
 			</div>
 		
+			<div id="myNav" class="overlay">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <div class="overlay-content">
+			    <a href="/"><b>HOME</b></a>
+			    <a href="about"><b>ABOUT</b></a>
+			    <a href="Resume_web.pdf"><b>RESUME</b></a>
+			    <a href="tech"><b>TECHNICAL PORTFOLIO</b></a>
+			    <a href="curricular"><b>HOBBIES</b></a>
+			  </div>
+			</div>
+		
 				
-		        <script>
-			function myFunction() {
-			  var x = document.getElementById("myTopnav");
-			  if (x.className === "topnav") {
-			    x.className += " responsive";
-			  } else {
-			    x.className = "topnav";
-			  }
+		       <script>
+			function openNav() {
+			  document.getElementById("myNav").style.height = "100%";
+			}
+
+			function closeNav() {
+			  document.getElementById("myNav").style.height = "0%";
 			}
 			</script>
 	    
@@ -231,7 +297,7 @@
 		<source src="movie.ogg" type="video/ogg">
 		Your browser does not support the video tag.
 		</video>
-		<a href="pr1"><div class="overlay">
+		<a href="pr1"><div class="overlay_pr">
 		<div class="text"><b>Energy Efficient Water Cleaning System: </b><br><br> A Designing Project</div>
 				    
                  </div>
@@ -239,7 +305,7 @@
 	    </div>
 	    <div class="container">
 		  <a href="pr2"><img src="pr2_wp.jpg" style="width:100% ;border: 1px solid #b30000" onContextMenu="return false;"></a>
-		  <a href="pr2"><div class="overlay">
+		  <a href="pr2"><div class="overlay_pr">
 		  <div class="text"><b>US Recessions Insight : </b><br><br> An article focused on GDP and Unemployment rate   </div>
                   </div>
 		  </a>
@@ -251,7 +317,7 @@
 	<div class="column">	
 		 <div class="container">
 		 <a href="pr3"><img src="fig_pr2.png" style="width:100%;" onContextMenu="return false;"></a>
-	         <a href="pr3"><div class="overlay">
+	         <a href="pr3"><div class="overlay_pr">
 		 <div class="text"><b>Handwritten Digit Recognizer : </b><br><br> A machine learning project using Google Colab</div>
                  </div>
 		 </a>
@@ -260,7 +326,7 @@
 	 
 	    <div class="container">
 		  <a href="pr4"><img src="pr4_wp.jpg" style="width:100%;" onContextMenu="return false;"></a>
-		  <a href="pr4"><div class="overlay">
+		  <a href="pr4"><div class="overlay_pr">
 		  <div class="text"><b>Telecommunication Project: </b><br><br> Radio Resource Management for 5G and Beyond Networks.</div>
                   </div>
 		  </a>
