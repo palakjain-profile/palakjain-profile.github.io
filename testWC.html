@@ -4,10 +4,24 @@
 		<title>Palak Jain - Personal Page</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-		</script>
-		<script src="jQWCloud.js"></script>
+		<link rel="stylesheet" type="text/css" href="jqcloud.css" />
+		    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+		    <script type="text/javascript" src="jqcloud-1.0.4.js"></script>
+		    <script type="text/javascript">
+	  var word_array = [
+          {text: "Lorem", weight: 15},
+          {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
+          {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
+          {text: "Sit", weight: 7},
+          {text: "Amet", weight: 5}
+          // ...as many words as you want
+      ];
+
+      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#example").jQCloud(word_array);
+      });
+    </script>
 	<style>
 		html, body {
 		width: 100%;
@@ -76,7 +90,7 @@
 			<p2 style="font-size:large;font-style: italic;"><b>Undergraduation:</b> Bachelors of Engineering in Electronics and Telecommunication from Institute of Engineering and Technology(IET), DAVV Indore (2014-2018).</br></p2> 
 		        <p3 style= "line-height: 1.8; font-size:large; font-style: italic;"><b>Schooling:</b> R. K. Daga Maheshwari Academy, Indore(M.P.).</p3>
 			</div>
-			<div id="wordCloud"></div>
+			<div id="example"></div>
 		<script>
 		const myData = [
   {word: 'Prashant', weight: 40},
