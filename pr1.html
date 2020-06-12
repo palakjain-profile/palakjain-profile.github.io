@@ -94,47 +94,61 @@
 		}
 
 		
-		.topnav li:hover {
-		  background-color: #555;
-		  color: black;
+		.overlay {
+		  height: 0%;
+		  width: 100%;
+		  position: fixed;
+		  z-index: 1;
+		  top: 0;
+		  left: 0;
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0, 0.9);
+		  overflow-y: hidden;
+		  transition: 0.5s;
 		}
 
-		
+		.overlay-content {
+		  position: relative;
+		  top: 25%;
+		  width: 100%;
+		  text-align: center;
+		  margin-top: 30px;
+		}
+
+		.overlay a {
+		  padding: 8px;
+		  text-decoration: none;
+		  font-size: 36px;
+		  color: #818181;
+		  display: block;
+		  transition: 0.3s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+		  color: #f1f1f1;
+		}
+
+		.overlay .closebtn {
+		  position: absolute;
+		  top: 20px;
+		  right: 45px;
+		  font-size: 60px;
+		}
+
 		@media screen and (max-width: 820px) {
-		  .topnav li:not(:first-child) {
+		   .topnav li:not(:first-child) {
 		    display: none;
 		  }
 		  .topnav a.icon {
 		    float: right;
 		    display: block;
-			  padding: 1%, 2%;
-		    margin-right:10%;
-		    }
-		}
-
-		@media screen and (max-width: 820px) {
-		  .topnav.responsive {position: relative;}
-		  .topnav.responsive .icon {
-		    position: absolute;
-		    right: 0;
-		    top: 0;
-		  }
-		  .topnav.responsive li {
-		  	    
-		    text-align: left;
-		  }
-		 .topnav.responsive li:not(:first-child){
-		   float: none;
-		   text-align: right;
-		    display: block;
-		    
-		    }	
-		  .topnav.responsive .dropdown {float: none;}
-		  .topnav.responsive .dropdown-content {position: relative;}
-		  .topnav.responsive .dropdown .dropbtn {
-		    display: block;
-		    width: 100%;
-		    text-align: left;
+		   }	
+		  .overlay {overflow-y: auto;}
+		  .overlay a {font-size: 20px}
+		  .overlay .closebtn {
+		  font-size: 40px;
+		  top: 15px;
+		  right: 35px;
 		  }
 		}
 		
@@ -153,20 +167,30 @@
 			<li><a href="resume"><b>RESUME</b></a></li>
 			<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
 			<li><a href="curricular"><b>HOBBIES</b></a></li>
-			<a href="javascript:void(0);" style="font-size:15px; margin-left: 10px" class="icon" onclick="myFunction()">&#9776;</a>
-    			</ul>
+			<a style="font-size:30px;cursor:pointer; float:right; margin-right:2%;" class="icon" onclick="openNav()">&#9776;</a>
+			</ul>
 			</nav>
 			</div>
 		
+			<div id="myNav" class="overlay">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <div class="overlay-content">
+			    <a href="/"><b>HOME</b></a>
+			    <a href="about"><b>ABOUT</b></a>
+			    <a href="Resume_web.pdf"><b>RESUME</b></a>
+			    <a href="tech"><b>TECHNICAL PORTFOLIO</b></a>
+			    <a href="curricular"><b>HOBBIES</b></a>
+			  </div>
+			</div>
+		
 				
-		        <script>
-			function myFunction() {
-			  var x = document.getElementById("myTopnav");
-			  if (x.className === "topnav") {
-			    x.className += " responsive";
-			  } else {
-			    x.className = "topnav";
-			  }
+		       <script>
+			function openNav() {
+			  document.getElementById("myNav").style.height = "100%";
+			}
+
+			function closeNav() {
+			  document.getElementById("myNav").style.height = "0%";
 			}
 			</script>
 		
