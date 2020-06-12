@@ -4,12 +4,8 @@
 		<title>Palak Jain - Personal Page</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="jqcloud.css" />
-		    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-			crossorigin="anonymous">
-		</script>
-		<script src="jQWCloud.js"></script>
+		<script src="bower_components/jqcloud2/dist/jqcloud.min.js"></script>
+		<link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.min.css">
 	<style>
 		html, body {
 		width: 100%;
@@ -78,81 +74,23 @@
 			<p2 style="font-size:large;font-style: italic;"><b>Undergraduation:</b> Bachelors of Engineering in Electronics and Telecommunication from Institute of Engineering and Technology(IET), DAVV Indore (2014-2018).</br></p2> 
 		        <p3 style= "line-height: 1.8; font-size:large; font-style: italic;"><b>Schooling:</b> R. K. Daga Maheshwari Academy, Indore(M.P.).</p3>
 			</div>
-			<div id="wordCloud"></div>
+		<div id="demo" ></div>
 		<script>
-		const myData = [
-  {word: 'Prashant', weight: 40},
-  {word: 'Sandeep', weight: 39},
-  {word: 'Ajinkya', weight: 11, color: 'green'},
-  {word: 'Rishi', weight: 27},
-  {word: 'Kuldeep', weight: 36},
-  {word: 'Vivek', weight: 39},
-  {word: 'Saheer', weight: 12, color: 'green'},
-  {word: 'Lohit', weight: 27},
-  {word: 'Anirudh', weight: 36},
-  {word: 'Raj', weight: 22},
-  {word: 'Mohan', weight: 40},
-  {word: 'Yadav', weight: 39},
-  {word: 'India', weight: 11, color: 'green'},
-  {word: 'USA', weight: 27},
-  {word: 'Sreekar', weight: 36},
-  {word: 'Ram', weight: 39},
-  {word: 'Deepali', weight: 12, color: 'green'},
-  {word: 'Kunal', weight: 27},
-  {word: 'Rishi', weight: 80},
-  {word: 'Chintan', weight: 22}          
-]
-		
-		$("#wordCloud").jQWCloud({
-		  words: myData
-		});
-			$("#wordCloud").jQWCloud({
+			var words = [
+			  {text: "Lorem", weight: 13},
+			  {text: "Ipsum", weight: 10.5},
+			  {text: "Dolor", weight: 9.4}  
+			];
 
-			  // title
-			  title: 'JQ WOrd Cloud',
-
-			  // min/max font size
-			  minFont: 10,
-			  maxFont: 50,
-
-			  // font offset
-			  fontOffset: 0,
-
-			  // shows the algorithm of creating the word cloud
-			  showSpaceDIV: false,
-
-			  // Enables the vertical alignment of words
-			  verticalEnabled: true,
-
-			  // color
-			  cloud_color: null,
-
-			  // font family
-			  cloud_font_family: null,
-
-			  // color of covering divs
-			  spaceDIVColor: 'white',
-
-			  // left padding of words
-			  padding_left: null,
-
-			  // classes with space to be applied on each word
-			  word_common_classes: null
-
-			});
-		
-		         $("#wordCloud").jQWCloud({
-			  word_click : function(){},
-			  word_mouseOver : function(){},
-			  word_mouseEnter : function(){},
-			  word_mouseOut : function(){},
-			  beforeCloudRender: function(){},
-			  afterCloudRender: function(){}
-			});
-		</script>
-
-			
-				       
+			$('#demo').jQCloud(words, {
+			  classPattern: null,
+			  colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976", "#ffeda0", "#ffffcc"],
+			  fontSize: {
+			    from: 0.1,
+			    to: 0.02
+			  }
+			});   		
+		</script>		       
 		</div>
  		<div class="right"><p><img src="palak2.jpg" alt="Palak Jain"> </p>
 		<p style= "font-style: italic;"> Hi! I am Palak Jain. Always being an avid learner, I get very inclined towards uncovering and experimenting with new things which ultimately lead my enthusiasm in BigData and Data Science. In addition, I believe my passion towards Dance has contributed a lot to build this quality of learnedness. 
