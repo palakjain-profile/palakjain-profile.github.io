@@ -2,10 +2,11 @@
 <html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Palak Jain - Personal Page</title>
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+			crossorigin="anonymous">
+		</script>
+		<script src="jQWCloud.js"></script>
 <style>
 	#skills-slider .item{
 		  margin: 3px;
@@ -20,65 +21,79 @@
 </style>
 </head>
 <body>
-	<section style="background-color: aliceblue;" class="pb20" id="skilll">
-                                    <div class="wrapper style1">
-                                        <article id="skills">
-                                            <header class="container tech" class="tech">
-                                                <h2 style="font-size: 40px;"><b><center>Technologies I've Worked on</center></b></h2>
-                                            </header>
-                                            <dl class="skills-diagram" style="padding-top: 40px;">
-                                                <dt class="skill-6">C</dt>
-                                                <dd>3</dd>
-                                                <dt class="skill-7">C++</dt>
-                                                <dd>8</dd>
-                                                <dt class="skill-4">AJAX</dt>
-                                                <dd>6</dd>
-                                                <dt class="skill-9">Python</dt>
-                                                <dd>8</dd>
-                                                <dt class="skill-4">PHP</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-7">Java</dt>
-                                                <dd>7</dd>
-                                                <dt class="skill-8">HTML5</dt>
-                                                <dd>4</dd>
-                                                <dt class="skill-8">CSS3</dt>
-                                                <dd>7</dd>
-                                                <dt class="skill-6">JavaScript</dt>
-                                                <dd>4</dd>
-                                                <dt class="skill-6">Photoshop</dt>
-                                                <dd>6</dd>
-                                                <dt class="skill-5">jQuery</dt>
-                                                <dd>4</dd>
-                                                <dt class="skill-7">BootStrap</dt>
-                                                <dd>3</dd>
-                                                <dt class="skill-4">Numpy</dt>
-                                                <dd>4</dd>
-                                                <dt class="skill-6">Pandas</dt>
-                                                <dd>6</dd>
-                                                <dt class="skill-5">JSON</dt>
-                                                <dd>3</dd>
-                                                <dt class="skill-6">SQL</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-8">Git</dt>
-                                                <dd>6</dd>
-                                                <dt class="skill-4">Heroku</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-8">Firebase&nbsp;BaaS</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-6">Matplotlib</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-7">Scikit-Learn</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-8">Web Scraping</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-7">Django</dt>
-                                                <dd>5</dd>
-                                                <dt class="skill-6">Linux</dt>
-                                                <dd>5</dd>
+	<div id="wordCloud"></div>
 
-                                            </dl>
+	<script>
+		const myData = [
+  {word: 'Prashant', weight: 40},
+  {word: 'Sandeep', weight: 39},
+  {word: 'Ajinkya', weight: 11, color: 'green'},
+  {word: 'Rishi', weight: 27},
+  {word: 'Kuldeep', weight: 36},
+  {word: 'Vivek', weight: 39},
+  {word: 'Saheer', weight: 12, color: 'green'},
+  {word: 'Lohit', weight: 27},
+  {word: 'Anirudh', weight: 36},
+  {word: 'Raj', weight: 22},
+  {word: 'Mohan', weight: 40},
+  {word: 'Yadav', weight: 39},
+  {word: 'India', weight: 11, color: 'green'},
+  {word: 'USA', weight: 27},
+  {word: 'Sreekar', weight: 36},
+  {word: 'Ram', weight: 39},
+  {word: 'Deepali', weight: 12, color: 'green'},
+  {word: 'Kunal', weight: 27},
+  {word: 'Rishi', weight: 80},
+  {word: 'Chintan', weight: 22}          
+]
+		
+  $("#wordCloud").jQWCloud({
+  words: myData
+  });
+		
+  $("#wordCloud").jQWCloud({
 
-                                        </article>
-                                    </div>
-                                </section>
+  // title
+  title: 'JQ WOrd Cloud',
+
+  // min/max font size
+  minFont: 10,
+  maxFont: 50,
+
+  // font offset
+  fontOffset: 0,
+
+  // shows the algorithm of creating the word cloud
+  showSpaceDIV: false,
+
+  // Enables the vertical alignment of words
+  verticalEnabled: true,
+
+  // color
+  cloud_color: null,
+
+  // font family
+  cloud_font_family: null,
+
+  // color of covering divs
+  spaceDIVColor: 'white',
+
+  // left padding of words
+  padding_left: null,
+
+  // classes with space to be applied on each word
+  word_common_classes: null
+  
+});		
+
+$("#wordCloud").jQWCloud({
+  word_click : function(){},
+  word_mouseOver : function(){},
+  word_mouseEnter : function(){},
+  word_mouseOut : function(){},
+  beforeCloudRender: function(){},
+  afterCloudRender: function(){}
+});
+		
+	</script>		
 </body></html>
