@@ -185,12 +185,38 @@
 				
 				<br>
 					
-				<h2><b><u>Database</u> </b> </h2>
+				<h2><b><u>Database: </u> </b> </h2>
 				<p> In this project, I have used MySQL database to store details of candidates and voters. It also contains details of all the nodes which should be connected
-					to the blockchain.  
+					to the blockchain. </p>
+			
+				<h2><b><u>Method: </u> </b> </h2>
+				<p> This blockchain based voting system basically transfer details of all transactions(details of vote) to all the node. In this way, it 
+					will be transparent to everybody and also no one can change or manipulate the details. If anyone try to manipulate the vote, he has 
+					to make changes in all the node which seems impossible as the number of nodes increase. If in case, someone make any changes 
+					in one node, it will be rejected because majority of nodes will be having the correct block and in case of any difference in blocks, 
+					everyone consider the block correct which has the majority. In this way, this method is very reliable.
+					<br>
+					While voting, system will check, if the voter has voted before. In that case, it will not take response from the voter and will give 
+					error message "Response already recorded". Also, if voter is not listed in the original list, again system will reject the vote and 
+					consider it as fake. 
+					
+				</p>
+			
+				<h2><b><u>Deployment: </u> </b> </h2>
+				<p> To demonstrate this system, I used a python library Flask and created some API with different methods(GET, POST) and tested those APIs using 
+					POSTMAN API platform.
+				</p>
+			
+				
+
+				<h2 style= "margin-bottom:-20px;"><b> Source Code</b></h2>
+			 <h2 style= "margin-bottom:-20px;"><a href="https://github.com/palak-j/Lock-the-vote--Blockchain"><b> Github</b></a></h2>	<br><br>
+			
+				
+				
 			
 			
-			<h2 style= "margin-bottom:-20px;"><a href="docs/pr4/rrm.pdf"><b> Project Report</b></a></h2>	<br><br>
+			
 		        </div>
 		
 		</body>		
