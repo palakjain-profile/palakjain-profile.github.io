@@ -190,6 +190,229 @@
 		    </div>
 		</div>
 	    </div>
+		
+		
+		
+	<script>
+
+    //draw map--------------------------------------------------------
+    d3.json("streets.json", function (data) {
+        // console.log(data);
+
+        //Define the lines
+        var pathGen = d3.svg.line()
+            .x(function (d) { return 650 - d.x * 30; })
+            .y(function (d) { return 570 - d.y * 30; });
+
+        var g = d3.select('#map-area').append('g')
+
+
+        //Loop through all the data
+        for (var i = 0; i < data.length; i++){
+            var line = data[i];
+
+            // console.log(line);
+            g.append('path')
+                .style('fill', 'none')
+                .style('stroke', '#414141')
+                .style('stroke-width', '2px')
+                .attr('d', pathGen(line))
+
+        }
+    });
+
+    //add pumps
+    d3.csv("data/pumps.csv", function (data) {
+        console.log(data)
+        var dots = d3.select('#map-area').append('g');
+
+        dots.selectAll('circle')
+            .data(data)
+            .enter().append('circle')
+            .style('fill', 'black')
+            .attr('r', '5px')
+            .attr('cx', function(d) { return 650 - d.x * 30; })
+            .attr('cy', function(d) { return 570 - d.y * 30; })
+            .attr('id', function(d) { return 'dots' + d.id; } );
+
+    });
+
+
+
+
+
+    // Merge "deathdays.csv" & "deaths_age_sex.csv"-----------------------------------------------
+    //merge the two table so that the deaths_age_sex has a new "Date" column
+    d3.csv("data/deathdays.csv", function (days) {
+
+        d3.csv("data/deaths_age_sex.csv", function (deaths) {
+
+            //j points to the last victim we checked in deaths
+            var j=0;
+            for(i = 0; i < days.length; i++){
+
+                var theDay = days[i].date;
+                var howManyDied = days[i].deaths;
+
+                for(k = 0; k < howManyDied; k++){
+                    deaths[j].date = theDay;
+                    j++;
+                    console.log(theDay);
+
+
+
+                }
+
+            }
+
+            //create circles------------------------------------------------------------------
+            var dots = d3.select('#map-area').append('g');
+
+            var cValue = function(d) { return d["gender"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([1,length])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+
+
+            dots.selectAll('circle')
+                .data(deaths)
+                .enter().append('circle')
+                .style('fill', 'red')
+                .attr('r', '3px')
+                .attr('cx', function(d) {return 650 - d.x * 30;})
+                .attr('cy', function(d) { return 570 - d.y * 30; })
+                .attr('id', function(d) { return 'dots' + d.id; })
+                .attr('class', function (d) {return 'dot' + d.date;})
+                .style("fill", function(d) { return color(cValue(d));})
+
+
+
+
+
+            //create barchart--------------------------------------------------------------
+            var margin = {top: 0, right: 20, bottom: 30, left: 40},
+                width = 500 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
+
+            var deathNumbers = d3.format("");
+
+            // define the x scale (horizontal)
+            var mindate = new Date(1854,8,19),
+                maxdate = new Date(1854,9,29);
+
+            var padding = 100;
+
+            var xScale = d3.time.scale()
+                .domain([mindate, maxdate])    // values between for months of september and october
+                .range([0, width]);   // map these the the chart width = total width minus padding at both sides
+
+            var x = d3.scale.ordinal()
+                .rangeRoundBands([0, width], .1);
+
+            var y = d3.scale.linear()
+                .range([height, 0])
+                .domain([0,150])
+
+            // define the y axis
+            var xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(xScale)
+                // .tickformat()
+
+            // var xAxis = d3.svg.axis()
+            //     .scale(x)
+            //     .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickFormat(deathNumbers);
+
+            // var tip = d3.tip()
+            //     .attr('class', 'd3-tip')
+            //     .offset([-10, 0])
+            //     .html(function(d) {
+            //         return "<strong>Deaths:</strong> <span style='color:red'>" + d.deaths + "</span>";
+            //     });
+
+            var svg = d3.select("#bar-chart").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+//            svg.call(tip);
+
+
+
+                x.domain(days.map(function(d) { return d.date; }));
+
+                svg.append("g")
+                    .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis)
+
+                    // .attr("class", "x axis")
+                    // .attr("transform", "translate(0," + height + ")")
+                    // .call(xAxis);
+
+                svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
+                .attr("transform", function(d) {
+                    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
+                });
+
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                    .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Number of Deaths");
+
+                svg.selectAll(".bar1")
+                    .data(days)
+                    .enter().append("rect")
+                    .attr("class", "bar1")
+                    .attr("x", function(d) { return x(d.date); })
+                    .attr("width", x.rangeBand())
+                    .attr("y", function(d) { return y(d.deaths); })
+                    .attr("height", function(d) { return height - y(d.deaths); })
+                    .attr('id', function(d) { return 'bar1' + d.date; })
+                    // .on('mouseover', tip.show)
+                    // .on('mouseout', tip.hide)
+                    .on('mouseover', function (d) {
+                        // tip.show
+                            d3.selectAll('.' + 'dot' + d.date)
+                                .style("fill", function(d) { return color(cValue(d));})
+                                .attr('r', '8px')
+
+                        // this.parentNode.appendChild(this);
+
+                    })
+                    .on('mouseout', function (d) {
+                        d3.selectAll('.' + 'dot' + d.date)
+                            .style("fill", function(d) { return color(cValue(d));})
+                            .attr('r', '3px')
+
+
+                    })
+
+            });
+        function type(d) {
+            d.deaths = +d.deaths;
+            return d;
+        }
+
+
+    });
+
+
+</script>
 			
 		</body>		
              
