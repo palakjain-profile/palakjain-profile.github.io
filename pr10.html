@@ -196,7 +196,7 @@
 	<script>
 
     //draw map--------------------------------------------------------
-    d3.json("streets.json", function (data) {
+    d3.json("docs/pr10/streets.json", function (data) {
         // console.log(data);
 
         //Define the lines
@@ -222,7 +222,7 @@
     });
 
     //add pumps
-    d3.csv("data/pumps.csv", function (data) {
+    d3.csv("docs/pr10/pumps.csv", function (data) {
         console.log(data)
         var dots = d3.select('#map-area').append('g');
 
@@ -243,9 +243,9 @@
 
     // Merge "deathdays.csv" & "deaths_age_sex.csv"-----------------------------------------------
     //merge the two table so that the deaths_age_sex has a new "Date" column
-    d3.csv("data/deathdays.csv", function (days) {
+    d3.csv("docs/pr10/deathdays.csv", function (days) {
 
-        d3.csv("data/deaths_age_sex.csv", function (deaths) {
+        d3.csv("docs/pr10/deaths_age_sex.csv", function (deaths) {
 
             //j points to the last victim we checked in deaths
             var j=0;
