@@ -229,6 +229,36 @@
                 <h3>Map of London</h3>
                 <svg id="map-area" width="600" height="700"></svg>
             	</div>
+		
+		<script>
+
+    //draw map--------------------------------------------------------
+    d3.json("streets.json", function (data) {
+        // console.log(data);
+
+        //Define the lines
+        var pathGen = d3.svg.line()
+            .x(function (d) { return 650 - d.x * 30; })
+            .y(function (d) { return 570 - d.y * 30; });
+
+        var g = d3.select('#map-area').append('g')
+
+
+        //Loop through all the data
+        for (var i = 0; i < data.length; i++){
+            var line = data[i];
+
+            // console.log(line);
+            g.append('path')
+                .style('fill', 'none')
+                .style('stroke', '#414141')
+                .style('stroke-width', '2px')
+                .attr('d', pathGen(line))
+
+        }
+    });
+
+		</script>
     
     
   
