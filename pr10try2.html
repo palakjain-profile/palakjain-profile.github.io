@@ -241,7 +241,7 @@
         //Define the lines
         var path = d3.svg.line().x(function (d) { return 650 - d.x *30; }).y(function (d) { return 570 - d.y*30; });
 
-        var g = d3.select('area').append('g')
+        var g = d3.select('#map').append('g')
 
 
         //Loop through all the data
