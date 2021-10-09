@@ -325,6 +325,17 @@ d3.csv("docs/pr10/deathdays.csv", function(data) {
     .call(d3.axisLeft(y).tickSize(0))
 	
 	
+	//Bars
+  svg.selectAll("myRect")
+    .data(data)
+    .join("rect")
+    .attr("x", x(0) )
+    .attr("y", d => y(d.date))
+    .attr("width", d => x(d.deaths))
+    .attr("height", y.bandwidth())
+    .attr("fill", "#69b3a2")
+	
+	
 })
 
 </script>
