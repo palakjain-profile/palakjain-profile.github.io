@@ -258,16 +258,17 @@
 	    //add pumps
     d3.csv("docs/pr10/pumps.csv", function (data) {
         console.log(data)
-        var dots = d3.select('#area').append('g');
+        var rect = d3.select('#area').append('g');
 
         dots.selectAll('circle')
             .data(data)
             .enter().append('circle')
             .style('fill', 'black')
-            .attr('r', '5px')
-            .attr('cx', function(d) { return 800 - d.x * 40; })
-            .attr('cy', function(d) { return 800 - d.y * 40; })
-            .attr('id', function(d) { return 'dots' + 2* d.id; } );
+            .attr('x', function(d) { return 800 - d.x * 40; })
+            .attr('y', function(d) { return 800 - d.y * 40; })
+	    .attr('width', 5)
+	    .attr('height',5)
+            .attr('id', function(d) { return 'rect' + d.id; } );
 
     });
 
