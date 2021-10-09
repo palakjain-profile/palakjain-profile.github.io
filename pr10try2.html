@@ -265,9 +265,9 @@
             .enter().append('circle')
             .style('fill', 'black')
 	    .attr('r', '5px')
-            .attr('rx', function(d) { return 800 - d.x * 40; })
-            .attr('ry', function(d) { return 800 - d.y * 40; })
-	    .attr('id', function(d) { return 'dots' + d.id; } );
+            .attr('cx', function(d) { return 800 - d.x * 40; })
+            .attr('cy', function(d) { return 800 - d.y * 40; })
+	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
     });
 
