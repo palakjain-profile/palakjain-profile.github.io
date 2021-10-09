@@ -262,7 +262,7 @@
 
         dots.selectAll('circle')
             .data(data)
-            .enter().append('circle')
+            .enter().append('rect')
             .style('fill', 'black')
             .attr('r', '5px')
             .attr('cx', function(d) { return 800 - d.x * 40; })
