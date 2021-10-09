@@ -304,8 +304,8 @@
             throw error;
         }
 
-        xScale.domain(data.map(function(d) { return d.year; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.value; })]);
+        xScale.domain(data.map(function(d) { return d.date; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.deaths; })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
