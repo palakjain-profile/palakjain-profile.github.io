@@ -253,6 +253,23 @@
 
         }
     });
+			
+			
+	    //add pumps
+    d3.csv("docs/pr10/pumps.csv", function (data) {
+        console.log(data)
+        var dots = d3.select('#area').append('g');
+
+        dots.selectAll('circle')
+            .data(data)
+            .enter().append('circle')
+            .style('fill', 'black')
+            .attr('r', '5px')
+            .attr('cx', function(d) { return 650 - d.x * 30; })
+            .attr('cy', function(d) { return 570 - d.y * 30; })
+            .attr('id', function(d) { return 'dots' + d.id; } );
+
+    });
 
 		</script>
     
