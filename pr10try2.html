@@ -232,6 +232,13 @@
                 <svg id="area" width="1000" height="700"></svg>
             	</div>
 		
+		<div id="bar-chart">
+                <h3>Number of deaths per day</h3>
+                <svg id="bar" width="600" height="700"></svg>
+            	</div>
+		
+		
+		
 		<script>
 
     //draw map--------------------------------------------------------
@@ -272,8 +279,61 @@
     });
 
 		</script>
+		
+		
+		<script>
+
+
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 30, bottom: 40, left: 90},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#bar")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
     
-    
+    // Parse the Data
+d3.csv("docs/pr10/deathdays.csv", function(data) {
+	// Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 13000])
+    .range([ 0, width]);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+	
+	// Y axis
+  var y = d3.scaleBand()
+    .range([ 0, height ])
+    .domain(data.map(function(d) { return d.date; }))
+    .padding(.1);
+  svg.append("g")
+    .call(d3.axisLeft(y))
+	
+	 //Bars
+  svg.selectAll("myRect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("x", x(0) )
+    .attr("y", function(d) { return y(d.date); })
+    .attr("width", function(d) { return x(d.deaths); })
+    .attr("height", y.bandwidth() )
+    .attr("fill", "#69b3a2")
+	
+	})
+
+</script>
+
   
     
 		
