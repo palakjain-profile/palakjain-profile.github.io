@@ -299,13 +299,13 @@
     var g = svg.append("g")
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-    d3.csv("docs/pr10/deathdays.csv", function(error, data) {
+    d3.csv("XYZ.csv", function(error, data) {
         if (error) {
             throw error;
         }
 
-        xScale.domain(data.map(function(d) { return d.date; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.deaths; })]);
+        xScale.domain(data.map(function(d) { return d.year; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.value; })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
