@@ -264,11 +264,10 @@
             .data(data)
             .enter().append('circle')
             .style('fill', 'black')
-            .attr('x', function(d) { return 800 - d.x * 40; })
-            .attr('y', function(d) { return 800 - d.y * 40; })
-	    .attr('width', 5)
-	    .attr('height',5)
-            .attr('id', function(d) { return 'dots' + d.id; } );
+	    .attr('r', '5px')
+            .attr('rx', function(d) { return 800 - d.x * 40; })
+            .attr('ry', function(d) { return 800 - d.y * 40; })
+	    .attr('id', function(d) { return 'dots' + d.id; } );
 
     });
 
