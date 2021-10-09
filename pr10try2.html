@@ -239,7 +239,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 650 - d.x; }).y(function (d) { return 570 - d.y; });
+        var path = d3.svg.line().x(function (d) { return 650 - d.x *30; }).y(function (d) { return 570 - d.y*30; });
 
         var g = d3.select('#map-area').append('g')
 
