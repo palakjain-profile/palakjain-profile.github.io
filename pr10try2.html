@@ -258,7 +258,7 @@
 	    //add pumps
     d3.csv("docs/pr10/pumps.csv", function (data) {
         console.log(data)
-        var rect = d3.select('#area').append('g');
+        var dots = d3.select('#area').append('g');
 
         dots.selectAll('circle')
             .data(data)
@@ -268,7 +268,7 @@
             .attr('y', function(d) { return 800 - d.y * 40; })
 	    .attr('width', 5)
 	    .attr('height',5)
-            .attr('id', function(d) { return 'rect' + d.id; } );
+            .attr('id', function(d) { return 'dots' + d.id; } );
 
     });
 
