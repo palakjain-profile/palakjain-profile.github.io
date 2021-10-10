@@ -321,11 +321,11 @@
                 return d.deaths;
             })]);
 
-        var y = d3.scale.ordinal()
-            .rangeRoundBands([height, 0], .1)
-            .domain(days.map(function (d) {
-                return d.date;
-            }));
+	var y = d3.time.scale()
+                .domain([mindate, maxdate])    // values between for months of september and october
+                .range([height, 0]);   // map these the the chart width = total width minus padding at both sides
+		
+       
 		
 	
     //make y axis to show bar names
