@@ -338,11 +338,11 @@
 	
 	var xAxis = d3.svg.axis()
             .scale(x)
-	    .call(d3.axisBottom(x)
-            //no tick marks
-            .tickSize(2);
-            
-
+	    //no tick marks
+            .tickSize(2)
+	    .orient("bottom");
+		
+		
         var gy = svg.append("g")
             .attr("class", "y axis")
             .call(yAxis)
