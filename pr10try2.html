@@ -306,7 +306,7 @@
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 15, right: 25, bottom: 15, left: 60},
-                width = 960 - 10*margin.left - 10*margin.right,
+                width = 500 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 	
 		
@@ -346,6 +346,11 @@
         var gy = svg.append("g")
             .attr("class", "y axis")
             .call(yAxis)
+	
+	var gx = svg.append("g")
+	    .attr("class", "x axis")
+	    .call(xAxis)
+	
 
         var bars = svg.selectAll(".bar")
             .data(days)
