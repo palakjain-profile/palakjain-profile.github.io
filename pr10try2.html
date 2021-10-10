@@ -354,6 +354,13 @@
                     .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis)
+		  .append("text")
+		 .attr("y", height - 250)
+		 .attr("x", width - 100)
+		 .attr("text-anchor", "end")
+		 .attr("stroke", "black")
+		 .text("Date");
+
 		    
 		
 		
@@ -366,9 +373,11 @@
                     .append("text")
                     .attr("transform", "rotate(-90)")
                     .attr("y", 6)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("Number of Deaths");
+		    .attr("dy", "-5.1em")
+		    .attr("text-anchor", "end")
+		    .attr("stroke", "black")
+		    .text("Number of Deaths");
+
 
                 svg.selectAll(".bar1")
                     .data(days)
