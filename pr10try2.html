@@ -285,75 +285,109 @@
 		
 //create barchart--------------------------------------------------------------
 			
-	d3.csv("docs/pr10/deathdays.csv", function(data){
-		
-            var margin = {top: 0, right: 20, bottom: 30, left: 40},
+	        var margin = {top: 0, right: 20, bottom: 30, left: 40},
                 width = 500 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
-			
-	   var mindate = new Date(1854,8,19),
-                maxdate = new Dat(1854,9,29); 
-		
-	   var xScale = d3.time.scale()
+
+            var deathNumbers = d3.format("");
+
+            // define the x scale (horizontal)
+            var mindate = new Date(1854,8,19),
+                maxdate = new Date(1854,9,29);
+
+            var padding = 100;
+
+            var xScale = d3.time.scale()
                 .domain([mindate, maxdate])    // values between for months of september and october
                 .range([0, width]);   // map these the the chart width = total width minus padding at both sides
-         
-	   var x = d3.scale.ordinal()
+
+            var x = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1);
-		
-		
-	   var y = d3.scale.linear()
+	
+	    var y = d3.scale.linear()
+                .range([height, 0])
                 .domain([0,150])
-		.range([height, 0])
-	   
-	   
-	    x.domain(days.map(function(d) { return d.date; }));
-	    y.domain([0, d3.max(data, function(d) { return d.deaths; })]);
-  	   
+
+            // define the y axis
+            var xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(xScale)
+                // .tickformat()
+
+            // var xAxis = d3.svg.axis()
+            //     .scale(x)
+            //     .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickFormat(deathNumbers);
 		
-	   var svg = d3.select("#bar").append("svg")
+	  var svg = d3.select("#bar").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-			
-	   
-	    svg.append("g")
-	    .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
-	    .attr("transform", "translate(0," + height + ")")
-	    .call(xAxis)
-			
-	     svg.append("g")
-	    .attr("class", "y axis")
-	    .call(yAxis)
-	    .append("text")
-	    .attr("transform", "rotate(-90)")
-	    .attr("y", 6)
-	    .attr("dy", ".71em")
-	    .style("text-anchor", "end")
-	    .text("Number of Deaths");
-		
-		
-	    
-	   // define the x and y axis
-            var xAxis = d3.svg.axis()
-                .orient("bottom")
-                .scale(xScale)
-                
-	    var yAxis = d3.svg.axis()
-                .scale(y)
-                .orient("left")
                
-			
+	//            svg.call(tip);
 
-	    
-		
-	
-		
-	     
 
-	  
-	})
+
+                x.domain(days.map(function(d) { return d.date; }));
+
+                svg.append("g")
+                    .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis)
+
+                    // .attr("class", "x axis")
+                    // .attr("transform", "translate(0," + height + ")")
+                    // .call(xAxis);
+
+                svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
+                .attr("transform", function(d) {
+                    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
+                });
+
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                    .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Number of Deaths");
+
+                svg.selectAll(".bar1")
+                    .data(days)
+                    .enter().append("rect")
+                    .attr("class", "bar1")
+                    .attr("x", function(d) { return x(d.date); })
+                    .attr("width", x.rangeBand())
+                    .attr("y", function(d) { return y(d.deaths); })
+                    .attr("height", function(d) { return height - y(d.deaths); })
+                    .attr('id', function(d) { return 'bar1' + d.date; })
+                    // .on('mouseover', tip.show)
+                    // .on('mouseout', tip.hide)
+                    .on('mouseover', function (d) {
+                        // tip.show
+                            d3.selectAll('.' + 'dot' + d.date)
+                                .style("fill", function(d) { return color(cValue(d));})
+                                .attr('r', '8px')
+
+                        // this.parentNode.appendChild(this);
+
+                    })
+                    .on('mouseout', function (d) {
+                        d3.selectAll('.' + 'dot' + d.date)
+                            .style("fill", function(d) { return color(cValue(d));})
+                            .attr('r', '3px')
+
+		})
+	});
+    });
+
 	</script>
 		
 
