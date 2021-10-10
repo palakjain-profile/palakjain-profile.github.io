@@ -253,7 +253,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 750 - d.x * 30; }).y(function (d) { return 600 - d.y * 30; });      //40 is for size, 
+        var path = d3.svg.line().x(function (d) { return 800 - d.x * 35; }).y(function (d) { return 700 - d.y * 35; });      //40 is for size, 
 
         var g = d3.select('#area').append('g')
 
@@ -310,8 +310,8 @@
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 25, right: 25, bottom: 15, left: 60},
-                width = 700 - margin.left - margin.right,
-                height = 700 - margin.top - margin.bottom;
+                width = 600 - margin.left - margin.right,
+                height = 600 - margin.top - margin.bottom;
 		
 	   var mindate = new Date(1854,8,19),
                 maxdate = new Date(1854,9,29);
