@@ -297,13 +297,27 @@
 	   var xScale = d3.time.scale()
                 .domain([mindate, maxdate])    // values between for months of september and october
                 .range([0, width]);   // map these the the chart width = total width minus padding at both sides
-           
+         
+	   var x = d3.scale.ordinal()
+                .rangeRoundBands([0, width], .1);
+		
+		
 	   var y = d3.scale.linear()
                 .domain([0,150])
 		.range([height, 0])
 	   
 	   
-	   
+	    
+	   // define the x and y axis
+            var xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(xScale)
+                
+	    var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+               
+			
 	    x.domain(days.map(function(d) { return d.date; }));
 	    
 		
@@ -315,7 +329,7 @@
 			
 	   
 	    svg.append("g")
-	    .attr("class", "x axis")   // give it a class so it can be used to select only xaxis labels  below
+	    .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(xAxis)
 			
@@ -336,17 +350,7 @@
 	   
             
 	
-	   
-	   // define the y axis
-            var xAxis = d3.svg.axis()
-                .orient("bottom")
-                .scale(xScale)
-                
-	    var yAxis = d3.svg.axis()
-                .scale(y)
-                .orient("left")
-               
-			
+	  
     
 	   
 
@@ -360,17 +364,7 @@
                     .attr("height", function(d) { return height - y(d.deaths); })
                     .attr('id', function(d) { return 'bar1' + d.date; })
            
-        
-
-	 svg.selectAll(".bar1")
-                    .data(days)
-                    .enter().append("rect")
-                    .attr("class", "bar1")
-                    .attr("x", function(d) { return x(d.date); })
-                    .attr("width", x.rangeBand())
-                    .attr("y", function(d) { return y(d.deaths); })
-                    .attr("height", function(d) { return height - y(d.deaths); })
-                    .attr('id', function(d) { return 'bar1' + d.date; })
+       
 	
 	})
 	</script>
