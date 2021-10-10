@@ -307,21 +307,11 @@
 		.range([height, 0])
 	   
 	   
-	    
-	   // define the x and y axis
-            var xAxis = d3.svg.axis()
-                .orient("bottom")
-                .scale(xScale)
-                
-	    var yAxis = d3.svg.axis()
-                .scale(y)
-                .orient("left")
-               
-			
 	    x.domain(days.map(function(d) { return d.date; }));
-	    
+	    y.domain([0, d3.max(data, function(d) { return d.deaths; })]);
+  	   
 		
-	    var svg = d3.select("#bar").append("svg")
+	   var svg = d3.select("#bar").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
@@ -343,29 +333,26 @@
 	    .style("text-anchor", "end")
 	    .text("Number of Deaths");
 		
+		
+	    
+	   // define the x and y axis
+            var xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(xScale)
+                
+	    var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+               
+			
+
+	    
+		
 	
 		
 	     
 
-	   
-            
-	
 	  
-    
-	   
-
-            svg.selectAll(".bar1")
-                    .data(data)
-                    .enter().append("rect")
-                    .attr("class", "bar1")
-                    .attr("x", function(d) { return x(d.date); })
-                    .attr("width", x.rangeBand())
-                    .attr("y", function(d) { return y(d.deaths); })
-                    .attr("height", function(d) { return height - y(d.deaths); })
-                    .attr('id', function(d) { return 'bar1' + d.date; })
-           
-       
-	
 	})
 	</script>
 		
