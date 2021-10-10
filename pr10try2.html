@@ -352,8 +352,14 @@
                     .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis)
-		    .text("date")
+		    .ticks(10)
+		 .append("text")
+		 .attr("y", 6)
+		 .attr("dy", "0.71em")
+		 .attr("text-anchor", "end")
+		 .text("value");
 
+		
 
                 
 
