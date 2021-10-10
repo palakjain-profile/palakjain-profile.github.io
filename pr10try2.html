@@ -253,7 +253,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 800 - d.x * 35; }).y(function (d) { return 700 - d.y * 35; });      //40 is for size, 
+        var path = d3.svg.line().x(function (d) { return 800 - d.x * 40; }).y(function (d) { return 700 - d.y * 40; });      //40 is for size, 
 
         var g = d3.select('#area').append('g')
 
@@ -279,8 +279,8 @@
             .enter().append('circle')
             .style('fill', 'blue')
 	    .attr('r', '5px')
-            .attr('cx', function(d) { return 750 - d.x * 30; })
-            .attr('cy', function(d) { return 600 - d.y * 30; })
+            .attr('cx', function(d) { return 800 - d.x * 40; })
+            .attr('cy', function(d) { return 700 - d.y * 40; })
 	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
     });
@@ -310,8 +310,8 @@
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 25, right: 25, bottom: 15, left: 60},
-                width = 600 - margin.left - margin.right,
-                height = 600 - margin.top - margin.bottom;
+                width = 550 - margin.left - margin.right,
+                height = 550 - margin.top - margin.bottom;
 		
 	   var mindate = new Date(1854,8,19),
                 maxdate = new Date(1854,9,29);
