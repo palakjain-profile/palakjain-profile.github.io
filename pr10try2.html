@@ -317,14 +317,14 @@
 
             var padding = 100;
 
-            var xScale = d3.time.scale()
+            var yScale = d3.time.scale()
                 .domain([mindate, maxdate])    // values between for months of september and october
                 .range([0, width]);   // map these the the chart width = total width minus padding at both sides
 
-            var x = d3.scale.ordinal()
+            var y = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1);
 	
-	    var y = d3.scale.linear()
+	    var x = d3.scale.linear()
                 .range([height, 0])
                 .domain([0,150])
 
@@ -333,10 +333,10 @@
             // define the y axis
             var xAxis = d3.svg.axis()
                 .orient("bottom")
-                .scale(xScale);
+                .scale(x);
 
             var yAxis = d3.svg.axis()
-                .scale(y)
+                .scale(yScale)
                 .orient("left")
                 .tickFormat(deathNumbers);
 		
@@ -379,14 +379,14 @@
 		    .text("Number of Deaths");
 
 
-                svg.selectAll(".bar1")
+		svg.selectAll(".bar1")
                     .data(days)
                     .enter().append("rect")
                     .attr("class", "bar1")
-                    .attr("x", function(d) { return x(d.date); })
-                    .attr("width", x.rangeBand())
-                    .attr("y", function(d) { return y(d.deaths); })
-                    .attr("height", function(d) { return height - y(d.deaths); })
+                    .attr("y", function(d) { return y(d.date); })
+                    .attr("height", y.rangeBand())
+                    .attr("x", function(d) { return x(d.deaths); })
+                    .attr("width", function(d) { return width - x(d.deaths); })
                     .attr('id', function(d) { return 'bar1' + d.date; })
                     .on('mouseover', function (d) {
                        
@@ -394,7 +394,7 @@
                                 .style("fill", function(d) { return color(cValue(d));})
                                 .attr('r', '8px')
 
-                        
+		                       
 
                     })
                     .on('mouseout', function (d) {
