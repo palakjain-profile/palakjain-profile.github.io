@@ -355,7 +355,7 @@
 	   
 
             svg.selectAll(".bar1")
-                    .data(days)
+                    .data(data)
                     .enter().append("rect")
                     .attr("class", "bar1")
                     .attr("x", function(d) { return x(d.date); })
