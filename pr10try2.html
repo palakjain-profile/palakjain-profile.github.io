@@ -310,8 +310,8 @@
 		
 	 //create circles------------------------------------------------------------------
             var dots = d3.select('#area').append('g');
-
-            var cValue = function(d) { return d["gender"];},
+		
+	    var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
@@ -422,22 +422,7 @@
             .attr("width", function (d) {
                 return x(d.deaths);
             });
-	     .on('mouseover', function (d) {
-                        // tip.show
-	    d3.selectAll('.' + 'dot' + d.date)
-		.style("fill", function(d) { return color(cValue(d));})
-		.attr('r', '8px')
-
-		// this.parentNode.appendChild(this);
-
-	    })
-	    .on('mouseout', function (d) {
-		d3.selectAll('.' + 'dot' + d.date)
-		    .style("fill", function(d) { return color(cValue(d));})
-		    .attr('r', '3px')
-
-
-	    })
+	    
 
         
 	});
