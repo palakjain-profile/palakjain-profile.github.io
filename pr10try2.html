@@ -233,7 +233,7 @@
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
-                <svg id="area" width="700" height="700"></svg>
+                <svg id="area" width="800" height="800"></svg>
             	</div>
 		</div>
 		
@@ -253,7 +253,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 800 - d.x * 34; }).y(function (d) { return 800 - d.y * 34; });      //40 is for size, 
+        var path = d3.svg.line().x(function (d) { return 800 - d.x * 35; }).y(function (d) { return 800 - d.y * 35; });      //40 is for size, 
 
         var g = d3.select('#area').append('g')
 
@@ -279,8 +279,8 @@
             .enter().append('circle')
             .style('fill', 'blue')
 	    .attr('r', '5px')
-            .attr('cx', function(d) { return 800 - d.x * 34; })
-            .attr('cy', function(d) { return 800 - d.y * 34; })
+            .attr('cx', function(d) { return 800 - d.x * 35; })
+            .attr('cy', function(d) { return 800 - d.y * 35; })
 	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
     });
