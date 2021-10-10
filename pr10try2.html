@@ -308,6 +308,30 @@
 
             }
 		
+	 //create circles------------------------------------------------------------------
+            var dots = d3.select('#area').append('g');
+
+            var cValue = function(d) { return d["gender"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([1,length])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+
+
+            dots.selectAll('circle')
+                .data(deaths)
+                .enter().append('circle')
+                .style('fill', 'red')
+                .attr('r', '3px')
+                .attr('cx', function(d) {return 650 - d.x * 30;})
+                .attr('cy', function(d) { return 570 - d.y * 30; })
+                .attr('id', function(d) { return 'dots' + d.id; })
+                .attr('class', function (d) {return 'dot' + d.date;})
+                .style("fill", function(d) { return color(cValue(d));})
+	
+	
+		
 //create barchart--------------------------------------------------------------
             var margin = {top: 35, right: 25, bottom: 15, left: 60},
                 width = 450 - margin.left - margin.right,
@@ -416,34 +440,6 @@
 	    })
 
         
-		
-		
-	
-            //create circles------------------------------------------------------------------
-            var dots = d3.select('#area').append('g');
-
-            var cValue = function(d) { return d["gender"];},
-                // color = d3.scale.category10();
-                // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
-
-
-            dots.selectAll('circle')
-                .data(deaths)
-                .enter().append('circle')
-                .style('fill', 'red')
-                .attr('r', '3px')
-                .attr('cx', function(d) {return 650 - d.x * 30;})
-                .attr('cy', function(d) { return 570 - d.y * 30; })
-                .attr('id', function(d) { return 'dots' + d.id; })
-                .attr('class', function (d) {return 'dot' + d.date;})
-                .style("fill", function(d) { return color(cValue(d));})
-
-	
-
-
 	});
 	    function type(d) {
             d.deaths = +d.deaths;
