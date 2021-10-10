@@ -352,12 +352,10 @@
                     .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis)
+		    .text("date")
 
 
-                svg.selectAll(".xaxis text")  // select all the text elements for the xaxis
-                .attr("transform", function(d) {
-                    return "translate(" + this.getBBox().height*-2 + "," + this.getBBox().height + ")rotate(-45)";
-                });
+                
 
                 svg.append("g")
                     .attr("class", "y axis")
