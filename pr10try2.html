@@ -387,6 +387,13 @@
                         // this.parentNode.appendChild(this);
 
                     })
+		.on('mouseout', function (d) {
+                        d3.selectAll('.' + 'dot' + d.date)
+                            .style("fill", function(d) { return color(cValue(d));})
+                            .attr('r', '3px')
+
+
+                    })
                    
 	});
     });
