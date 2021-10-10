@@ -253,7 +253,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 600- d.x * 35; }).y(function (d) { return 600 - d.y * 35; });      //40 is for size, 
+        var path = d3.svg.line().x(function (d) { return 700- d.x * 35; }).y(function (d) { return 700 - d.y * 35; });      //40 is for size, 
 
         var g = d3.select('#area').append('g')
 
@@ -279,8 +279,8 @@
             .enter().append('circle')
             .style('fill', 'blue')
 	    .attr('r', '5px')
-            .attr('cx', function(d) { return 600 - d.x * 35; })
-            .attr('cy', function(d) { return 600 - d.y * 35; })
+            .attr('cx', function(d) { return 700 - d.x * 35; })
+            .attr('cy', function(d) { return 700 - d.y * 35; })
 	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
     });
@@ -351,6 +351,7 @@
     //make y axis to show bar names
         var yAxis = d3.svg.axis()
             .scale(y)
+	    .ticks(10)
 	    //no tick marks
             .tickSize(2)
 	    .orient("left");
