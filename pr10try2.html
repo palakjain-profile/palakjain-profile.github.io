@@ -309,7 +309,9 @@
 	    width = 500 - margin.left - margin.right,
 	    height = 500 - margin.top - margin.bottom;
 
+	    var deathNumbers = d3.format("");
 
+		
             // define the x scale (horizontal)
             var mindate = new Date(1854,8,19),
                 maxdate = new Date(1854,9,29);
@@ -333,6 +335,7 @@
             var yAxis = d3.svg.axis()
                 .scale(y)
                 .orient("left")
+	        .tickFormat(deathNumbers);
 		
 	  var svg = d3.select("#bar").append("svg")
                 .attr("width", width + margin.left + margin.right)
