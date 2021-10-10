@@ -306,7 +306,7 @@
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 15, right: 25, bottom: 15, left: 60},
-                width = 960 - 4*margin.left - 4*margin.right,
+                width = 960 - 10*margin.left - 10*margin.right,
                 height = 500 - margin.top - margin.bottom;
 	
 		
@@ -334,8 +334,14 @@
         var yAxis = d3.svg.axis()
             .scale(y)
             //no tick marks
-            .tickSize(0)
+            .tickSize(2)
             .orient("left");
+	
+	var xAxis = d3.svg.axis()
+            .scale(x)
+            //no tick marks
+            .tickSize(2)
+            .orient("bottom");
 
         var gy = svg.append("g")
             .attr("class", "y axis")
