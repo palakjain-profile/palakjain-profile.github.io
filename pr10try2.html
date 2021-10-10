@@ -328,11 +328,11 @@
 	  
 	  
 	  
-	 var y = d3.time.scale()
+	 var yScale = d3.time.scale()
                 .domain([mindate, maxdate])    // values between for months of september and october
                 .range([height, 0]);
 		
-	var yScale = d3.scale.ordinal()
+	var y = d3.scale.ordinal()
             .rangeRoundBands([height, 0], .1)
             .domain(days.map(function (d) {
                 return d.date;
@@ -350,7 +350,7 @@
 	
     //make y axis to show bar names
         var yAxis = d3.svg.axis()
-            .scale(yScale)
+            .scale(y)
 	    //no tick marks
             .tickSize(2)
 	    .orient("left");
