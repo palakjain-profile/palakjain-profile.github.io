@@ -364,8 +364,9 @@
             .call(yAxis)
 	    .append("text")
 	    .attr("transform", "rotate(-90)")
-	    .attr("y", 10)
-	    .attr("dy", "-0.4em")
+	    .attr("y", height-6)
+	     .attr("y",6)
+	    
 	    .style("text-anchor", "end")
 	    .text("Date");
 	
@@ -373,7 +374,9 @@
 	    .attr("class", "x axis")
 	    .call(xAxis)
 	    .append("text")
-	    .attr("dy", ".71em")
+	    .attr("x", width)
+	    .attr("y", height-6)
+	    .attr("dy", ".75em")
 	    .style("text-anchor", "end")
 	    .text("Number of Deaths");
 	
