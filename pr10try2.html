@@ -305,9 +305,11 @@
             }
 		
 //create barchart--------------------------------------------------------------
-            var margin = {top: 0, right: 20, bottom: 30, left: 40},
-                width = 500 - margin.left - margin.right,
+            var margin = {top: 15, right: 25, bottom: 15, left: 60},
+                width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
+		
+	 
 
             var deathNumbers = d3.format("");
 
@@ -319,13 +321,13 @@
 
             var yScale = d3.time.scale()
                 .domain([mindate, maxdate])    // values between for months of september and october
-                .range([0, width]);   // map these the the chart width = total width minus padding at both sides
+                .range([height, 0]);   // map these the the chart width = total width minus padding at both sides
 
             var y = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1);
 	
 	    var x = d3.scale.linear()
-                .range([height, 0])
+                .range([0, width])
                 .domain([0,150])
 
 	    
@@ -348,18 +350,13 @@
                
 
 
-                x.domain(days.map(function(d) { return d.date; }));
+                y.domain(days.map(function(d) { return d.date; }));
 
                 svg.append("g")
                     .attr("class", "axis xaxis")   // give it a class so it can be used to select only xaxis labels  below
-                    .attr("transform", "translate(0," + height + ")")
+                    .attr("transform", "translate(0," + width + ")")
                     .call(xAxis)
-		  .append("text")
-		 .attr("y", height - 250)
-		 .attr("x", width - 100)
-		 .attr("text-anchor", "end")
-		 .attr("stroke", "black")
-		 .text("Date");
+		  
 
 		    
 		
@@ -370,13 +367,7 @@
                 svg.append("g")
                     .attr("class", "y axis")
                     .call(yAxis)
-                    .append("text")
-                    .attr("transform", "rotate(-90)")
-                    .attr("y", 3)
-		    .attr("dy", ".7em")
-		    .attr("text-anchor", "end")
-		    .attr("stroke", "black")
-		    .text("Number of Deaths");
+                    
 
 
 		svg.selectAll(".bar1")
