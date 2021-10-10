@@ -253,7 +253,7 @@
         // console.log(data);
 
         //Define the lines
-        var path = d3.svg.line().x(function (d) { return 700- d.x * 35; }).y(function (d) { return 700 - d.y * 35; });      //40 is for size, 
+        var path = d3.svg.line().x(function (d) { return 800- d.x * 35; }).y(function (d) { return 700 - d.y * 35; });      //40 is for size, 
 
         var g = d3.select('#area').append('g')
 
@@ -279,7 +279,7 @@
             .enter().append('circle')
             .style('fill', 'blue')
 	    .attr('r', '5px')
-            .attr('cx', function(d) { return 700 - d.x * 35; })
+            .attr('cx', function(d) { return 800 - d.x * 35; })
             .attr('cy', function(d) { return 700 - d.y * 35; })
 	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
@@ -309,13 +309,11 @@
             }
 		
 //create barchart--------------------------------------------------------------
-            var margin = {top: 25, right: 25, bottom: 15, left: 60},
+            var margin = {top: 35, right: 25, bottom: 15, left: 60},
                 width = 450 - margin.left - margin.right,
                 height = 550 - margin.top - margin.bottom;
 		
-	   var mindate = new Date(1854,8,19),
-                maxdate = new Date(1854,9,29);
-	
+	   
 	   var svg = d3.select("#bar").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -328,9 +326,7 @@
 	  
 	  
 	  
-	 var yScale = d3.time.scale()
-                .domain([mindate, maxdate])    // values between for months of september and october
-                .range([height, 0]);
+	
 		
 	var y = d3.scale.ordinal()
             .rangeRoundBands([height, 0], .1)
@@ -339,7 +335,7 @@
             }));
 	  
 		
-	var xScale = d3.scale.linear()
+	var x = d3.scale.linear()
                 .range([0, width])
                 .domain([0,150])
 
@@ -351,17 +347,16 @@
     //make y axis to show bar names
         var yAxis = d3.svg.axis()
             .scale(y)
-	    .ticks(10)
 	    //no tick marks
             .tickSize(2)
 	    .orient("left");
 	
 	
 	var xAxis = d3.svg.axis()
-            .scale(xScale)
+            .scale(x)
 	    //no tick marks
             .tickSize(2)
-	    .orient("bottom");
+	    .orient("top");
 		
 		
         var gy = svg.append("g")
