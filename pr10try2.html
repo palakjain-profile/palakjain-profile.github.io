@@ -308,10 +308,7 @@
             var margin = {top: 15, right: 25, bottom: 15, left: 60},
                 width = 960 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
-		
-	  
-            var mindate = new Date(1854,8,19),
-                maxdate = new Date(1854,9,29);
+	
 		
 	   var svg = d3.select("#bar").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -325,10 +322,11 @@
                 return d.deaths;
             })]);
 
-	var y = d3.time.scale()
-                .domain([mindate, maxdate])    // values between for months of september and october
-                .range([height, 0]);   // map these the the chart width = total width minus padding at both sides
-		
+	var y = d3.scale.ordinal()
+            .rangeRoundBands([height, 0], .1)
+            .domain(days.map(function (d) {
+                return d.date;
+            }));
        
 		
 	
