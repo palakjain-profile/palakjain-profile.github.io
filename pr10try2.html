@@ -368,8 +368,7 @@
 	 //function draw_dots(cValue){
 		 
 		 dots.selectAll('circle')
-		.id("createdot")
-                .data(deaths)
+		.data(deaths)
                 .enter().append('circle')
                 .attr('r', '3px')
                 .attr('cx', function(d) {return 650 - d.x * 30;})
