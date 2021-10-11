@@ -244,6 +244,9 @@
             	</div>
 		</div>
 		
+		<!-- Add 2 buttons-->
+		<button type="button" onclick="changeColor('blue')">Total</button>
+		<button type="button" onclick="changeColor('red')">By Gender</button>
 		
 		
 		<script>
@@ -344,15 +347,8 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 		
-	  var x = d3.scale.linear()
-            .range([0, width])
-            .domain([0,150])
-	  
-	  
-	  
-	
 		
-	var y = d3.scale.ordinal()
+       	var y = d3.scale.ordinal()
             .rangeRoundBands([height, 0], .1)
             .domain(days.map(function (d) {
                 return d.date;
@@ -363,10 +359,6 @@
                 .range([0, width])
                 .domain([0,150])
 
-	 
-	
-       
-		
 	
     //make y axis to show bar names
         var yAxis = d3.svg.axis()
