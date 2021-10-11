@@ -340,7 +340,9 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#63ACBE"), d3.rgb('#63ACBE')]);
 		 
+		 
 		 draw_dots(cValue)
+		 dots.update();
 
 	};
 		
@@ -353,6 +355,7 @@
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
 		  
 	 draw_dots(cValue)
+	 dots.update();
 
 	};
 	
