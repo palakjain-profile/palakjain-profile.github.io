@@ -339,6 +339,8 @@
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#63ACBE"), d3.rgb('#63ACBE')]);
+		 
+		 draw_dots(cValue)
 
 	};
 		
@@ -349,13 +351,18 @@
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+		  
+	 draw_dots(cValue)
 
 	};
 	
 
 	   
 
-            dots.selectAll('circle')
+		
+	 function draw_dots(color){
+		 
+		 dots.selectAll('circle')
                 .data(deaths)
                 .enter().append('circle')
                 .attr('r', '3px')
@@ -364,10 +371,10 @@
                 .attr('id', function(d) { return 'dots' + d.id; })
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cValue(d));})
-		
+		 
+	 }
 	
-	
-	
+	draw_dots(cValue)
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
