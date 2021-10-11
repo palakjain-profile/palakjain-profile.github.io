@@ -341,7 +341,7 @@
                 .range([d3.rgb("#63ACBE"), d3.rgb('#63ACBE')]);
 		 
 		 
-		 draw_dots(cValue)
+		 //draw_dots(cValue)
 		 dots.update();
 
 	};
@@ -354,7 +354,7 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
 		  
-	 draw_dots(cValue)
+	 //draw_dots(cValue)
 	 dots.update();
 
 	};
@@ -363,7 +363,7 @@
 	   
 
 		
-	 function draw_dots(cValue){
+	 //function draw_dots(cValue){
 		 
 		 dots.selectAll('circle')
                 .data(deaths)
@@ -375,9 +375,9 @@
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cValue(d));})
 		 
-	 }
+	// }
 	
-	draw_dots(cValue)
+	//draw_dots(cValue)
 		
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
