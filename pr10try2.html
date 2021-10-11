@@ -355,7 +355,9 @@
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
 		  
 	 //draw_dots(cValue)
-	 dots.update();
+	 var createdot = document.getElementById("createdot");
+		  
+	 createdot.update();
 
 	};
 	
@@ -366,6 +368,7 @@
 	 //function draw_dots(cValue){
 		 
 		 dots.selectAll('circle')
+		.id("createdot")
                 .data(deaths)
                 .enter().append('circle')
                 .attr('r', '3px')
