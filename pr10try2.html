@@ -322,12 +322,7 @@
 	    //bygender.addEventListener("click", getByGender);
 		
 	 
-	 var cValue = function(d) { return d["gender"];},
-                // color = d3.scale.category10();
-                // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+	 var cValue = d3.rgb('#63ACBE');
 		
 	    
 	   
