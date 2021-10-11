@@ -333,7 +333,7 @@
                 .range([d3.rgb('#63ACBE'), d3.rgb('#63ACBE')]);
 	
 	 total.onclick = function () {
-         var cValue = function(d) { return d["gender"];},
+         cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
@@ -342,12 +342,11 @@
 		 
 		 
 		 draw_dots(cValue)
-		 dots.update();
-
+		
 	};
 		
 	  bygender.onclick = function () {
-          var cValue = function(d) { return d["gender"];},
+          cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
@@ -357,7 +356,7 @@
 	 draw_dots(cValue)
 	 //var createdot = document.getElementById("createdot");
 		  
-	 dots.update();
+	 
 
 	};
 	
