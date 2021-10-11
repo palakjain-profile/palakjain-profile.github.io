@@ -262,42 +262,13 @@
 
         var g = d3.select('#area').append('g')
         
-	var zoomSettings = {
-		duration:1000,
-		ease: d3.easeCubicOut,
-		zoomLevel: 5
-	};
-	    
-	 function clicked(d){
-		 var x;
-		 var y;
-		 var zoomLevel;
-		 
-		 if (d && centered !=d){
-			 var centroid = path.centroid(d);
-			 x = centroid[0];
-			 y = centroid[1];
-			 zoomLevel = zoomSettings.zoomLevel;
-			 centered = d;
-		 } else{
-			 x =  width/2;
-			 y = height/2;
-			 zoomLevel = 1;
-			 centered = null; 
-		 }
-		 
-		 g.transition()
-		 .duration(zoomSettings.duration)
-		 .ease(zoomSettings.ease) 
-		 .attr('transform', 'translate(' + width/2 + ',' + height/2 + ')scale(' + zoomLevel + ')translate(' + -x + ',' + -y + ')'); 
-	 }
 
         //Loop through all the data
         for (var i = 0; i < data.length; i++){
             var line = data[i];
 
             // console.log(line);
-            g.append('path').style('fill', 'none').style('stroke', '#414141').style('stroke-width', '2px').attr('d', path(line).attr('cursor', 'pointer'))
+            g.append('path').style('fill', 'none').style('stroke', '#414141').style('stroke-width', '2px').attr('d', path(line))
 
         }
     });
