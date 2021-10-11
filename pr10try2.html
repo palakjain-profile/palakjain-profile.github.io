@@ -245,8 +245,8 @@
 		</div>
 		
 		<!-- Add 2 buttons-->
-		<button type="button" onclick="changeColor('blue')">Total</button>
-		<button type="button" onclick="changeColor('red')">By Gender</button>
+		<button type="button" onclick="changeColor('blue')" id="total">Total Deaths</button>
+		<button type="button" onclick="changeColor('red')" id="bygender" >By Gender</button>
 		
 		
 		<script>
@@ -313,14 +313,36 @@
 		
 	 //create circles------------------------------------------------------------------
             var dots = d3.select('#area').append('g');
+	    var total = document.getElementById('total');
+	    var bygender = document.getElementById('bygender');
+	    
+	    total.addEventListener("click", getTotal);
+	    bygender.addEventListener("click", getByGender);
 		
-	    var cValue = function(d) { return d["gender"];},
+	  function getTotal(){
+		  var cValue = d3.rgb('#63ACBE');
+		  dots.config.style = "fill", function(d) { return cValue}
+		  dots.update();
+		  
+	  };
+		
+	  function getByGender(){
+		   var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+		  
+		  dots.config.style = "fill", function(d) { return cValue}
+		  
 
+	
+       	};  
+	
+		
+	    
+	   
 
             dots.selectAll('circle')
                 .data(deaths)
@@ -331,7 +353,7 @@
                 .attr('cy', function(d) { return 570 - d.y * 30; })
                 .attr('id', function(d) { return 'dots' + d.id; })
                 .attr('class', function (d) {return 'dot' + d.date;})
-                .style("fill", function(d) { return d3.rgb('#63ACBE')})
+                .style("fill", function(d) { return cValue;})
 	
 	
 		
