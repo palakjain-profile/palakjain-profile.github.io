@@ -319,28 +319,13 @@
 	    total.addEventListener("click", getTotal);
 	    bygender.addEventListener("click", getByGender);
 		
-	  function getTotal(){
-		  var cValue = d3.rgb('#63ACBE');
-		  dots.config.style = "fill", function(d) { return cValue}
-		  dots.update();
-		  
-	  };
-		
-	  function getByGender(){
-		   var cValue = function(d) { return d["gender"];},
+	 
+	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
-		  
-		  dots.config.style = "fill", function(d) { return cValue}
-		  dots.update();
-		  
-
-	
-       	};  
-	
 		
 	    
 	   
@@ -440,7 +425,7 @@
 	    .on('mouseover', function (d) {
 		// tip.show
 		    d3.selectAll('.' + 'dot' + d.date)
-			.style("fill", function(d) { return d3.rgb('#EE442F')})
+			.style("fill", function(d) { return cValue})
 			.attr('r', '8px')
 
 		// this.parentNode.appendChild(this);
@@ -448,7 +433,7 @@
 	         })
 		.on('mouseout', function (d) {
                         d3.selectAll('.' + 'dot' + d.date)
-                            .style("fill", function(d) { return d3.rgb('#63ACBE')})
+                            .style("fill", function(d) { return cValue})
                             .attr('r', '3px')
 
 
