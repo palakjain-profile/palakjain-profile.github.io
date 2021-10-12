@@ -237,7 +237,7 @@
         dots.selectAll('circle')
             .data(data)
             .enter().append('circle')
-            .style('fill', 'blue')
+            .style('fill', '#804C38')
 	    .attr('r', '5px')
             .attr('cx', function(d) { return 750 - d.x * 35; })
             .attr('cy', function(d) { return 700 - d.y * 35; })
@@ -306,7 +306,7 @@
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
+                .range([d3.rgb("#C839B2"), d3.rgb('#3957C8')]);
 		  
 	 draw_dots()
 	 //var createdot = document.getElementById("createdot");
