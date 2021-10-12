@@ -235,10 +235,10 @@
         console.log(data)
         var dots = d3.select('#area').append('g');
 
-        dots.selectAll('pump')
+        dots.selectAll('circle')
             .data(data)
-            .enter().append('pump')
-            .style('fill', '#804C38')
+            .enter().append('circle')
+            .style('fill', '#000000')
 	    .attr('r', '5px')
             .attr('cx', function(d) { return 750 - d.x * 35; })
             .attr('cy', function(d) { return 700 - d.y * 35; })
