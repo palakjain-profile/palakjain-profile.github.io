@@ -238,14 +238,14 @@
         console.log(data)
         var dots = d3.select('#area').append('g');
 
-        dots.selectAll('circle')
+        dots.selectAll('rect')
             .data(data)
-            .enter().append('circle')
+            .enter().append('rect')
             .style('fill', '#804C38')
-	    .attr('r', '5px')
-            .attr('cx', function(d) { return 750 - d.x * 35; })
-            .attr('cy', function(d) { return 700 - d.y * 35; })
-	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
+	    .attr('width', 5px)
+	    .attr('height', 5px)
+            .attr('x', function(d) { return 750 - d.x * 35; })
+            .attr('y', function(d) { return 700 - d.y * 35; });
 
     });
 			
