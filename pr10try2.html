@@ -245,8 +245,8 @@
 	        
 		
 		<!-- Add 2 buttons-->
-		<button type="button" onclick="draw_dots(cValue)" id="total">Total Deaths</button>
-		<button type="button" onclick="draw_dots(cValue)" id="bygender" >By Gender</button>
+		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
+		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
 		
 		</div>
 		
@@ -341,7 +341,7 @@
                 .range([d3.rgb("#63ACBE"), d3.rgb('#63ACBE')]);
 		 
 		 
-		 draw_dots(cValue)
+		 draw_dots()
 		
 	};
 		
@@ -353,7 +353,7 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#EE442F"), d3.rgb('#63ACBE')]);
 		  
-	 draw_dots(cValue)
+	 draw_dots()
 	 //var createdot = document.getElementById("createdot");
 		  
 	 
