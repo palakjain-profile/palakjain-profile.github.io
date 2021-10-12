@@ -235,9 +235,9 @@
         console.log(data)
         var dots = d3.select('#area').append('g');
 
-        dots.selectAll('circle')
+        dots.selectAll('pump')
             .data(data)
-            .enter().append('circle')
+            .enter().append('pump')
             .style('fill', '#804C38')
 	    .attr('r', '5px')
             .attr('cx', function(d) { return 750 - d.x * 35; })
