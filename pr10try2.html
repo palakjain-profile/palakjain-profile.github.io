@@ -283,7 +283,7 @@
 	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
+                color_over = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb('#4194DA'), d3.rgb('#4194DA')]);
 		
@@ -299,7 +299,7 @@
          cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
+                color_over = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#4194DA"), d3.rgb('#4194DA')]);
 		 
@@ -318,7 +318,7 @@
           cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
+                color_over = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#C839B2"), d3.rgb('#3957C8')]);
 		  
@@ -439,7 +439,7 @@
 	    .on('mouseover', function (d) {
 		// tip.show
 		    d3.selectAll('.' + 'dot' + d.date)
-			.style("fill", function(d) { return color(cValue(d));})
+			.style("fill", function(d) { return color_over(cValue(d));})
 			.attr('r', '8px')
 
 		// this.parentNode.appendChild(this);
