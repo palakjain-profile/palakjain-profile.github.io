@@ -81,7 +81,17 @@
 		  overflow: hidden;
 		border-bottom: 1px solid #000;
 		 }
-
+		 
+		.present{
+			border-style: inset;
+			font-size: 20px;
+		}
+		
+                 ul li{
+		  display: inline;
+			 
+	          
+		}
 		
 		.active {
 		  background-color: #4CAF50;
@@ -206,6 +216,18 @@
 		
  		<h1 style= "text-align: center; font-variant: small-caps; font-size:xx-large; margin-top:20px;">
 	  London's 1854 cholera epidemic </h1>
+		
+		
+		 <ul>
+			<div class= "present">
+			<li><a href="documentation-pr10"><b>Documentation</b></a></li>
+			 </div>
+			<div class= "present">
+			<li><a href="video-pr10"><b>Video Presentation</b></a></li>
+			</div>
+		</ul>
+		
+		
     
     		<div class="left">
 		<div id="map">
@@ -223,7 +245,7 @@
 		<button type="button" class="button" onclick="draw_dots()" id="bygender" >By Gender</button>
 		<button type="button" class="button" onclick="draw_dots()" id="byage" >By Age</button>
 			
-                <svg id="bar" width="500" height="600"></svg>
+                <svg id="bar" width="500" height="700"></svg>
             	</div>
 	        
 		</div>
@@ -388,14 +410,6 @@
 	
 		
 	};
-		
-		var bvalue = function(d) { return d["date"];},
-                // color = d3.scale.category10();
-                // color = d3.scale.["#EE442F", "#63ACBE"];
-                colorb = d3.scale.linear().domain([1,length])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#0DAD13"), d3.rgb('#0DAD13')]);
-	   
 	
  
 		 dots.selectAll('circle')
@@ -407,20 +421,6 @@
                 .attr('cy', function(d) { return 570 - d.y * 30; })
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cout(d));})
-		.on('mouseover', function (d) {
-		// tip.show
-		    d3.selectAll('.' + 'bar' + d.date)
-			.style("fill", function(d) { return colorb(bvalue(d));})
-			
-		// this.parentNode.appendChild(this);
-
-	         })
-		.on('mouseout', function (d) {
-                        d3.selectAll('.' + 'bar' + d.date)
-                            .style("fill", function(d) { return colorb(bvalue(d));})
-                           
-
-                    })
 	
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
@@ -493,8 +493,8 @@
 	
 	//append rects
         bars.append("rect")
-		 .attr('class', function (d) {return 'dot' + d.date;})
-                 .attr("y", function (d) {
+            .attr("class", "bar")
+            .attr("y", function (d) {
                 return y(d.date);
             })
             .attr("height", y.rangeBand())
