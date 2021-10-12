@@ -193,20 +193,17 @@
 		</div>
 		
 		<div class="right">
-		<h3 style="text-align: center;" >Number of deaths per day</h3>
+		<div id="bar-chart">
+                <h3 style="text-align: center;" >Number of deaths per day</h3>
+			
 		<!-- Add 3 buttons-->
 		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
 		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
 		<button type="button" onclick="draw_dots()" id="byage" >By Age</button>
 			
-		<div id="bar-chart">
-                
                 <svg id="bar" width="500" height="600"></svg>
             	</div>
 	        
-		
-		
-		
 		</div>
 		
 		
@@ -238,14 +235,14 @@
         console.log(data)
         var dots = d3.select('#area').append('g');
 
-        dots.selectAll('rect')
+        dots.selectAll('circle')
             .data(data)
-            .enter().append('rect')
-            .style('fill', '#804C38')
-	    .attr('width', 5px)
-	    .attr('height', 5px)
-            .attr('x', function(d) { return 750 - d.x * 35; })
-            .attr('y', function(d) { return 700 - d.y * 35; });
+            .enter().append('circle')
+            .style('fill', '#000000')
+	    .attr('r', '5px')
+            .attr('cx', function(d) { return 750 - d.x * 35; })
+            .attr('cy', function(d) { return 700 - d.y * 35; })
+	    .attr('id', function(d) { return 'dots' + 2*d.id; } );
 
     });
 			
@@ -266,7 +263,6 @@
                     deaths[j].date = theDay;
                     j++;
                     
-		
 
 
                 }
@@ -277,7 +273,6 @@
 	var bygender = document.getElementById('bygender')
 	var byage = document.getElementById('byage')
 	
-	
 	 //create circles------------------------------------------------------------------
             var dots = d3.select('#area').append('g');
 	    //var total = document.getElementById('total');
@@ -287,7 +282,7 @@
 	    //bygender.addEventListener("click", getByGender);
 		
 	 
-	var cValue = function(d) { return d["gender"];},
+	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color_over = d3.scale.linear().domain([1,length])
@@ -349,8 +344,7 @@
 
 	};
 		
-		
-	 byage.onclick = function () {
+	byage.onclick = function () {
          cValue = function(d) { return d["age"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
@@ -372,8 +366,6 @@
 	
 		
 	};
-		
-	
 	
  
 		 dots.selectAll('circle')
@@ -385,22 +377,6 @@
                 .attr('cy', function(d) { return 570 - d.y * 30; })
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cout(d));})
-		 .on('mouseover', function (d) {
-		// tip.show
-		    d3.selectAll('.' + 'bar' + d.date)
-			.style("fill", function(d) { return color(cValue(d));})
-			
-
-		// this.parentNode.appendChild(this);
-
-	         })
-		.on('mouseout', function (d) {
-                        d3.selectAll('.' + 'bar' + d.date)
-                            .style("fill", function(d) { return color(cout(d));})
-                
-
-
-                    })
 	
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
@@ -473,7 +449,7 @@
 	
 	//append rects
         bars.append("rect")
-            .attr('class', function (d) {return 'bar' + d.date;})
+            .attr("class", "bar")
             .attr("y", function (d) {
                 return y(d.date);
             })
@@ -482,7 +458,6 @@
             .attr("width", function (d) {
                 return x(d.deaths);
             })
-	    
 	    .on('mouseover', function (d) {
 		// tip.show
 		    d3.selectAll('.' + 'dot' + d.date)
