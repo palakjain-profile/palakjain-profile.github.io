@@ -81,7 +81,17 @@
 		  overflow: hidden;
 		border-bottom: 1px solid #000;
 		 }
-
+		 
+		.present{
+			border-style: inset;
+			font-size: 20px;
+		}
+		
+                 ul li{
+		  display: inline;
+			 
+	          
+		}
 		
 		.active {
 		  background-color: #4CAF50;
@@ -206,6 +216,18 @@
 		
  		<h1 style= "text-align: center; font-variant: small-caps; font-size:xx-large; margin-top:20px;">
 	  London's 1854 cholera epidemic </h1>
+		
+		
+		 <ul>
+			<div class= "present">
+			<li><a href="documentation-pr10"><b>Documentation</b></a></li>
+			 </div>
+			<div class= "present">
+			<li><a href="video-pr10"><b>Video Presentation</b></a></li>
+			</div>
+		</ul>
+		
+		
     
     		<div class="left">
 		<div id="map">
@@ -223,10 +245,15 @@
 		<button type="button" class="button" onclick="draw_dots()" id="bygender" >By Gender</button>
 		<button type="button" class="button" onclick="draw_dots()" id="byage" >By Age</button>
 			
-                <svg id="bar" width="500" height="600"></svg>
+                <svg id="bar" width="500" height="700"></svg>
             	</div>
 	        
 		</div>
+		
+		<p style="margin-left:3px;"> This Visualization project has been created by Palak Jain as a part of course assignment for "Visualization Design, Analysis,
+		& Evaluation - H517" in Fall 2021 at IUPUI. The main aim of the project is to reproduce interactive visualization of Dr. John Snow's outbreak map.
+			Check the full <a href="https://palak-j.github.io/documentation-pr10"><b><i>Documentation</i></b></a> and <a href="https://palak-j.github.io/video-pr10"><b><i>Video Presentation</i></b></a> here.
+		</p>
 		
 		
 		<script>
