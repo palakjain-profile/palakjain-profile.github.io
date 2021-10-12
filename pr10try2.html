@@ -286,6 +286,14 @@
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb('#63ACBE'), d3.rgb('#63ACBE')]);
+		
+	var cout = function(d) { return d["gender"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([1,length])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb('#63ACBE'), d3.rgb('#63ACBE')]);
+		
 	
 	 total.onclick = function () {
          cValue = function(d) { return d["gender"];},
@@ -295,6 +303,12 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#63ACBE"), d3.rgb('#63ACBE')]);
 		 
+	 cout = function(d) { return d["gender"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([1,length])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb('#63ACBE'), d3.rgb('#63ACBE')]);
 		 
 		 draw_dots()
 		
@@ -307,6 +321,13 @@
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#C839B2"), d3.rgb('#3957C8')]);
+		  
+         cout = function(d) { return d["gender"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([1,length])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb('#E18EF1'), d3.rgb('#7792CA')]);
 		  
 	 draw_dots()
 	 //var createdot = document.getElementById("createdot");
@@ -426,7 +447,7 @@
 	         })
 		.on('mouseout', function (d) {
                         d3.selectAll('.' + 'dot' + d.date)
-                            .style("fill", function(d) { return d3.rgb('#63ACBE');})
+                            .style("fill", function(d) { return color(cout(d));})
                             .attr('r', '3px')
 
 
