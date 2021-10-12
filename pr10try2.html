@@ -399,6 +399,22 @@
                 .attr('cy', function(d) { return 570 - d.y * 30; })
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cout(d));})
+		.on('mouseover', function (d) {
+		// tip.show
+		    d3.selectAll('.' + 'bar' + d.date)
+			.style("fill", function(d) { return color_over(cValue(d));})
+			
+
+		// this.parentNode.appendChild(this);
+
+	         })
+		.on('mouseout', function (d) {
+                        d3.selectAll('.' + 'bar' + d.date)
+                            .style("fill", function(d) { return color(cout(d));})
+                            
+
+
+                    })
 	
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
@@ -471,7 +487,7 @@
 	
 	//append rects
         bars.append("rect")
-            .attr("class", "bar")
+            .attr('class', function (d) {return 'bar' + d.date;})
             .attr("y", function (d) {
                 return y(d.date);
             })
