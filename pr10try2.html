@@ -270,6 +270,7 @@
 	
 	var total = document.getElementById('total')
 	var bygender = document.getElementById('bygender')
+	var controldot = document.getElementById('area')
 	
 	 //create circles------------------------------------------------------------------
             var dots = d3.select('#area').append('g');
@@ -292,7 +293,7 @@
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
+                .range([d3.rgb('#000000'), d3.rgb('#000000')]);
 		
 	
 	 total.onclick = function () {
@@ -310,7 +311,7 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
 		 
-		dots.update()
+		controldot.update()
 		
 	};
 		
