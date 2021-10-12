@@ -193,16 +193,19 @@
 		</div>
 		
 		<div class="right">
+		<h3 style="text-align: center;" >Number of deaths per day</h3>
+		<!-- Add 3 buttons-->
+		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
+		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
+		<button type="button" onclick="draw_dots()" id="byage" >By Age</button>
+			
 		<div id="bar-chart">
-                <h3 style="text-align: center;" >Number of deaths per day</h3>
+                
                 <svg id="bar" width="500" height="600"></svg>
             	</div>
 	        
 		
-		<!-- Add 2 buttons-->
-		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
-		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
-		<button type="button" onclick="draw_dots()" id="byage" >By Age</button>
+		
 		
 		</div>
 		
