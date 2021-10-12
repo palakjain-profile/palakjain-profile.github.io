@@ -73,7 +73,7 @@
 
 		.axis text {
 			font-family: helvetica;
-			font-size: 8px;
+			font-size: 10px;
 			fill: gray;
 			
 		}
@@ -426,7 +426,7 @@
 	         })
 		.on('mouseout', function (d) {
                         d3.selectAll('.' + 'dot' + d.date)
-                            .style("fill", function(d) { return color(cValue(d));})
+                            .style("fill", function(d) { return d3.rgb('#63ACBE');})
                             .attr('r', '3px')
 
 
