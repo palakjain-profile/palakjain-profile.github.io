@@ -355,10 +355,10 @@
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
 		 
-	 cout = function(d) { return d["gender"];},
+	 cout = function(d) { return d["age"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
-                color = d3.scale.linear().domain([1,length])
+                color = d3.scale.linear().domain([0,1,2,3,4,5])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
 		 
