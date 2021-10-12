@@ -195,14 +195,15 @@
 		<div class="right">
 		<div id="bar-chart">
                 <h3 style="text-align: center;" >Number of deaths per day</h3>
+			
+		<!-- Add 3 buttons-->
+		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
+		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
+		<button type="button" onclick="draw_dots()" id="byage" >By Age</button>
+			
                 <svg id="bar" width="500" height="600"></svg>
             	</div>
 	        
-		
-		<!-- Add 2 buttons-->
-		<button type="button" onclick="draw_dots()" id="total">Total Deaths</button>
-		<button type="button" onclick="draw_dots()" id="bygender" >By Gender</button>
-		
 		</div>
 		
 		
@@ -270,7 +271,7 @@
 	
 	var total = document.getElementById('total')
 	var bygender = document.getElementById('bygender')
-	var controldot = document.getElementById('area')
+	var byage = document.getElementById('byage')
 	
 	 //create circles------------------------------------------------------------------
             var dots = d3.select('#area').append('g');
@@ -341,6 +342,29 @@
 		  
 	 
 
+	};
+		
+	byage.onclick = function () {
+         cValue = function(d) { return d["age"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color_over = d3.scale.linear().domain([0,1,2,3,4,5])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+		 
+	 cout = function(d) { return d["age"];},
+                // color = d3.scale.category10();
+                // color = d3.scale.["#EE442F", "#63ACBE"];
+                color = d3.scale.linear().domain([0,1,2,3,4,5])
+                .interpolate(d3.interpolateHcl)
+                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+		 
+		 d3.selectAll('circle')
+		 .style("fill", function(d) { return color(cout(d));})
+		 
+		
+	
+		
 	};
 	
  
