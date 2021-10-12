@@ -206,6 +206,12 @@
 		
  		<h1 style= "text-align: center; font-variant: small-caps; font-size:xx-large; margin-top:20px;">
 	  London's 1854 cholera epidemic </h1>
+		
+		 <ul>
+			<li><a href="documentation-pr10"><b>Documentation</b></a></li>
+			<li><a href="video-pr10"><b>Video Presentation</b></a></li>
+		</ul>
+			
     
     		<div class="left">
 		<div id="map">
@@ -399,22 +405,6 @@
                 .attr('cy', function(d) { return 570 - d.y * 30; })
                 .attr('class', function (d) {return 'dot' + d.date;})
                 .style("fill", function(d) { return color(cout(d));})
-		.on('mouseover', function (d) {
-		// tip.show
-		    d3.selectAll('.' + 'bar' + d.date)
-			.style("fill", function(d) { return color_over(cValue(d));})
-			
-
-		// this.parentNode.appendChild(this);
-
-	         })
-		.on('mouseout', function (d) {
-                        d3.selectAll('.' + 'bar' + d.date)
-                            .style("fill", function(d) { return color(cout(d));})
-                            
-
-
-                    })
 	
 //create barchart--------------------------------------------------------------
             var margin = {top: 55, right: 25, bottom: 15, left: 60},
@@ -487,7 +477,7 @@
 	
 	//append rects
         bars.append("rect")
-            .attr('class', function (d) {return 'bar' + d.date;})
+            .attr("class", "bar")
             .attr("y", function (d) {
                 return y(d.date);
             })
