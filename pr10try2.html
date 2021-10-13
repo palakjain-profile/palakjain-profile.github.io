@@ -7,6 +7,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet'>
+		<link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" data-semver="3.0.1" data-require="normalize@*" />
 		<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
 		
@@ -23,6 +24,12 @@
       		margin: 0;
     		padding : 0;
 		}
+		.legend {                                                   /* NEW */
+		font-size: 12px;                                          /* NEW */
+	      }                                                           /* NEW */
+	      rect {                                                      /* NEW */
+		stroke-width: 2;                                          /* NEW */
+	      }    
 		.button {
 		  transition-duration: 0.4s;
 		  background-color: white; 
@@ -213,6 +220,8 @@
 			  document.getElementById("myNav").style.height = "0%";
 			}
 			</script>
+		<script data-require="d3@*" data-semver="4.0.0" src="https://d3js.org/d3.v4.min.js"></script>
+   
 		
  		<h1 style= "text-align: center; font-variant: small-caps; font-size:xx-large; margin-top:20px;">
 	  London's 1854 cholera epidemic </h1>
@@ -227,7 +236,8 @@
 			</div>
 		</ul>
 		
-				
+			<div id="chart"></div>	
+		
     
     		<div class="left">
 		<div id="map">
@@ -255,6 +265,78 @@
 			Check the full <a href="https://palak-j.github.io/documentation-pr10"><b><i>Documentation</i></b></a> and <a href="https://palak-j.github.io/video-pr10"><b><i>Video Presentation</i></b></a> here.
 		</p>
 		
+		
+		<script>
+      (function(d3) {
+        'use strict';
+
+        var dataset = [
+          { label: 'Abulia', count: 10 }, 
+          { label: 'Betelgeuse', count: 20 },
+          { label: 'Cantaloupe', count: 30 },
+          { label: 'Dijkstra', count: 40 }
+        ];
+
+        var width = 360;
+        var height = 360;
+        var radius = Math.min(width, height) / 2;
+        var donutWidth = 75;
+        var legendRectSize = 18;                                  // NEW
+        var legendSpacing = 4;                                    // NEW
+
+        var color = d3.scaleOrdinal(d3.schemeCategory20b);
+
+        var svg = d3.select('#chart')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+
+        var arc = d3.arc()
+          .innerRadius(radius - donutWidth)
+          .outerRadius(radius);
+
+        var pie = d3.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+
+        var path = svg.selectAll('path')
+          .data(pie(dataset))
+          .enter()
+          .append('path')
+          .attr('d', arc)
+          .attr('fill', function(d, i) { 
+            return color(d.data.label);
+          });
+
+        var legend = svg.selectAll('.legend')                     // NEW
+          .data(color.domain())                                   // NEW
+          .enter()                                                // NEW
+          .append('g')                                            // NEW
+          .attr('class', 'legend')                                // NEW
+          .attr('transform', function(d, i) {                     // NEW
+            var height = legendRectSize + legendSpacing;          // NEW
+            var offset =  height * color.domain().length / 2;     // NEW
+            var horz = -2 * legendRectSize;                       // NEW
+            var vert = i * height - offset;                       // NEW
+            return 'translate(' + horz + ',' + vert + ')';        // NEW
+          });                                                     // NEW
+
+        legend.append('rect')                                     // NEW
+          .attr('width', legendRectSize)                          // NEW
+          .attr('height', legendRectSize)                         // NEW
+          .style('fill', color)                                   // NEW
+          .style('stroke', color);                                // NEW
+          
+        legend.append('text')                                     // NEW
+          .attr('x', legendRectSize + legendSpacing)              // NEW
+          .attr('y', legendRectSize - legendSpacing)              // NEW
+          .text(function(d) { return d; });                       // NEW
+
+      })(window.d3);
+    </script>
 		
 		<script>
 			
