@@ -360,9 +360,6 @@
                 .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
 		
 	
-	function changeStyle() {
-	  document.getElementsById("gender_id").style.visibility="hidden";
-	}
 	
 	 total.onclick = function () {
          cValue = function(d) { return d["gender"];},
@@ -376,11 +373,9 @@
                 .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
 		 
 		 d3.selectAll('circle')
-		 .style("fill", function(d) { return color(cout(d));})
+		 .style("fill", function(d) { return color(cout(d));});
 	
-	
-		 .age_id.visibility("hidden")
-		 .gender_id.visibility("hidden")
+	document.getElementsById("gender_id").style.visibility="hidden";
 		
 	
 		
