@@ -342,6 +342,7 @@
 	var total = document.getElementById('total')
 	var bygender = document.getElementById('bygender')
 	var byage = document.getElementById('byage')
+	const age_id = document.getElementById('age_id')
 	
 	 //dots
             var dots = d3.select('#area').append('g');
@@ -361,7 +362,7 @@
 	
 	 total.onclick = function () {
 		 
-	 document.getElementsById("age_id").style.visibility= "visible";
+	 //document.getElementsById("age_id").style.visibility= "visible";
          cValue = function(d) { return d["gender"];},
                 color_over = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
@@ -374,6 +375,12 @@
 		 
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));});
+		 
+	if (age_id.style.display !== "none") {
+	    age_id.style.display = "none";
+	  } else {
+	    age_id.style.display = "block";
+	  }
 	
 	
 		 
