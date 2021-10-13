@@ -9,7 +9,8 @@
 		<link href='https://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet'>
 		<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     		<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
    		<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 		<script src="https://d3js.org/d3.v6.js"></script>
 		<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
@@ -22,6 +23,14 @@
       		margin: 0;
     		padding : 0;
 		}
+		.parallelogram {
+		width: 65px;
+		height: 35px;
+		//transform: skew(20deg);
+		background: #555;
+	         text-align: center;
+	         font-size: 25px
+	         }
 		.button {
 		  transition-duration: 0.4s;
 		  background-color: white; 
@@ -225,12 +234,13 @@
 			<li><a href="https://iu.mediaspace.kaltura.com/edit/1_twsmspyu"><b>Video Presentation</b></a></li>
 			</div>
 		</ul>
-		
+	
 		
     
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
+		<div class="parallelogram">Female</div>
                 <svg id="area" width="800" height="650"></svg>
             	</div>
 		</div>
