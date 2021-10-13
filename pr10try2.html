@@ -245,11 +245,11 @@
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
-		<div class="gender_cl">
+		<div class="gender_cl" id="gender_id" >
 		<div class="parallelogram" style="background-color: #7792CA; margin-left: 65px;">Male</div>
 		<div class="parallelogram" style="background-color: #E18EF1;">Female</div><br><br>
 		</div>
-		<div class="age_cl">
+		<div class="age_cl" id="age_id" style="visibility: hidden;">
 		<div class="parallelogram" style="background-color: #F1DD1D; margin-left: 65px;">0-10</div>
 		<div class="parallelogram" style="background-color: #17E925 ;">10-20</div>
 		<div class="parallelogram" style="background-color: #1762E9; ">20-40</div>
@@ -342,6 +342,8 @@
 	var total = document.getElementById('total')
 	var bygender = document.getElementById('bygender')
 	var byage = document.getElementById('byage')
+	var gender_id = document.getElementById('gender_id')
+	var age_id = document.getElementById('age_id')
 	
 	 //dots
             var dots = d3.select('#area').append('g');
@@ -358,6 +360,8 @@
                 .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
 		
 	
+		
+	
 	 total.onclick = function () {
          cValue = function(d) { return d["gender"];},
                 color_over = d3.scale.linear().domain([1,length])
@@ -371,7 +375,10 @@
 		 
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
-		 
+	
+	
+		 .age_id.visibility("hidden")
+		 .gender_id.visibility("hidden")
 		
 	
 		
