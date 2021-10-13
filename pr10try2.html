@@ -329,7 +329,11 @@
 	    
 	    //total.addEventListener("click", getTotal);
 	    //bygender.addEventListener("click", getByGender);
-		
+		svg.append("circle").attr("cx",150).attr("cy",700).attr("r", 6).style("fill", "#69b3a2")
+		svg.append("circle").attr("cx",200).attr("cy",700).attr("r", 6).style("fill", "#404080")
+		svg.append("text").attr("x", 150).attr("y", 700).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
+		svg.append("text").attr("x", 200).attr("y", 760).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+
 	 
 	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
