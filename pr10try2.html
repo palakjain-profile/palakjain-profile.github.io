@@ -266,9 +266,9 @@
                 <h3 style="text-align: center;" >Number of deaths per day</h3>
 			
 		<!-- Add 3 buttons-->
-		<button type="button" class="button" id="total" style="margin-left: 2cm;">Total Deaths</button>
-		<button type="button" class="button" id="bygender" >By Gender</button>
-		<button type="button" class="button" id="byage" >By Age</button>
+		<button type="button" class="button" onclick="draw_dots()" id="total" style="margin-left: 2cm;">Total Deaths</button>
+		<button type="button" class="button" onclick="draw_dots()" id="bygender" >By Gender</button>
+		<button type="button" class="button" onclick="draw_dots()" id="byage" >By Age</button>
 			
                 <svg id="bar" width="500" height="700"></svg>
             	</div>
@@ -342,8 +342,6 @@
 	var total = document.getElementById('total')
 	var bygender = document.getElementById('bygender')
 	var byage = document.getElementById('byage')
-	var gender_id = document.getElementById('gender_id')
-	var age_id = document.getElementById('age_id')
 	
 	 //dots
             var dots = d3.select('#area').append('g');
