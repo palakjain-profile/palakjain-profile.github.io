@@ -29,8 +29,10 @@
 		//transform: skew(20deg);
 		background: #555;
 	         text-align: center;
-	         font-size: 25px
+	         font-size: 25px;
+		visibility: hidden;
 	         }
+		
 		.button {
 		  transition-duration: 0.4s;
 		  background-color: white; 
@@ -240,7 +242,7 @@
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
-		<svg id="legend" class="parallelogram">Female</svg>
+		<div class="parallelogram">Female</div>
                 <svg id="area" width="800" height="650"></svg>
             	</div>
 		</div>
