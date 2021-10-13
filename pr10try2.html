@@ -223,7 +223,7 @@
 			<li><a href="documentation-pr10"><b>Documentation</b></a></li>
 			 </div>
 			<div class= "present">
-			<li><a href="video-pr10"><b>Video Presentation</b></a></li>
+			<li><a href="https://iu.mediaspace.kaltura.com/edit/1_twsmspyu"><b>Video Presentation</b></a></li>
 			</div>
 		</ul>
 		
@@ -232,8 +232,6 @@
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
-		//<svg id="l1"></svg>
-		//<svg id="l2"></svg>
                 <svg id="area" width="800" height="650"></svg>
             	</div>
 		</div>
@@ -259,12 +257,6 @@
 		
 		
 		<script>
-			
-		//d3.select('#l1').append("circle").attr("cx", 0).attr("cy",700).attr("r", 6).style("fill", "#69b3a2")
-		//d3.select('#l2').attr("cx",0).attr("cy", 0).attr("r", 6).style("fill", "#404080")
-		//d3.select('#l1').attr("x", 0).attr("y", 0).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
-		//d3.select('#l2').attr("x", 0).attr("y", 0).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
-
 
     //draw map--------------------------------------------------------
     d3.json("docs/pr10/streets.json", function (data) {
@@ -337,6 +329,7 @@
 	    
 	    //total.addEventListener("click", getTotal);
 	    //bygender.addEventListener("click", getByGender);
+		
 	 
 	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
@@ -406,14 +399,14 @@
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color_over = d3.scale.linear().domain([0,1,2,3,4,5])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+                .range([d3.rgb("#F1DD1D"), d3.rgb("#17E925"), d3.rgb('#1762E9'),d3.rgb("#A941EC"), d3.rgb('#83A496'), d3.rgb("#EC414B")]);
 		 
 	 cout = function(d) { return d["age"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([0,1,2,3,4,5])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+                 .range([d3.rgb("#F1DD1D"), d3.rgb("#17E925"), d3.rgb('#1762E9'),d3.rgb("#A941EC"), d3.rgb('#83A496'), d3.rgb("#EC414B")]);
 		 
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
