@@ -266,9 +266,9 @@
                 <h3 style="text-align: center;" >Number of deaths per day</h3>
 			
 		<!-- Add 3 buttons-->
-		<button type="button" class="button" onclick="draw_dots()" id="total" style="margin-left: 2cm;">Total Deaths</button>
-		<button type="button" class="button" onclick="draw_dots()" id="bygender" >By Gender</button>
-		<button type="button" class="button" onclick="draw_dots()" id="byage" >By Age</button>
+		<button type="button" class="button" onclick="changeStyle()" id="total" style="margin-left: 2cm;">Total Deaths</button>
+		<button type="button" class="button" onclick="changeStyle()" id="bygender" >By Gender</button>
+		<button type="button" class="button" onclick="changeStyle()" id="byage" >By Age</button>
 			
                 <svg id="bar" width="500" height="700"></svg>
             	</div>
@@ -360,7 +360,9 @@
                 .range([d3.rgb('#9AC7EE'), d3.rgb('#9AC7EE')]);
 		
 	
-		
+	function changeStyle() {
+	  document.getElementsByClassName("gender_cl")[0].style.visibility="hidden";
+	}
 	
 	 total.onclick = function () {
          cValue = function(d) { return d["gender"];},
