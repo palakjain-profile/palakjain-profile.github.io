@@ -232,6 +232,8 @@
     		<div class="left">
 		<div id="map">
                 <h3 style="text-align: center;" >Map of London</h3>
+		<svg id="l1"></svg>
+		<svg id="l2"></svg>
                 <svg id="area" width="800" height="650"></svg>
             	</div>
 		</div>
@@ -257,6 +259,12 @@
 		
 		
 		<script>
+			
+		d3.select('#l1').append("circle").attr("cx", 0).attr("cy",700).attr("r", 6).style("fill", "#69b3a2")
+		d3.select('#l2').attr("cx",0).attr("cy", 0).attr("r", 6).style("fill", "#404080")
+		d3.select('#l1').attr("x", 0).attr("y", 0).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
+		d3.select('#l2').attr("x", 0).attr("y", 0).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
+
 
     //draw map--------------------------------------------------------
     d3.json("docs/pr10/streets.json", function (data) {
@@ -329,11 +337,6 @@
 	    
 	    //total.addEventListener("click", getTotal);
 	    //bygender.addEventListener("click", getByGender);
-		svg.append("circle").attr("cx",150).attr("cy",700).attr("r", 6).style("fill", "#69b3a2")
-		svg.append("circle").attr("cx",200).attr("cy",700).attr("r", 6).style("fill", "#404080")
-		svg.append("text").attr("x", 150).attr("y", 700).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle")
-		svg.append("text").attr("x", 200).attr("y", 760).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle")
-
 	 
 	 var cValue = function(d) { return d["gender"];},
                 // color = d3.scale.category10();
