@@ -399,14 +399,14 @@
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color_over = d3.scale.linear().domain([0,1,2,3,4,5])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+                .range([d3.rgb("#F1DD1D"), d3.rgb("#17E925"), d3.rgb('#1762E9'),d3.rgb("#A941EC"), d3.rgb('#83A496'), d3.rgb("#EC414B")]);
 		 
 	 cout = function(d) { return d["age"];},
                 // color = d3.scale.category10();
                 // color = d3.scale.["#EE442F", "#63ACBE"];
                 color = d3.scale.linear().domain([0,1,2,3,4,5])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#FCC0BE"), d3.rgb("#FDA9A7"), d3.rgb('#FC807D'),d3.rgb("#FC5E5A"), d3.rgb('#FB413C'), d3.rgb("#FF0700")]);
+                 .range([d3.rgb("#F1DD1D"), d3.rgb("#17E925"), d3.rgb('#1762E9'),d3.rgb("#A941EC"), d3.rgb('#83A496'), d3.rgb("#EC414B")]);
 		 
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
