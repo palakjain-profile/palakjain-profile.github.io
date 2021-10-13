@@ -266,9 +266,9 @@
                 <h3 style="text-align: center;" >Number of deaths per day</h3>
 			
 		<!-- Add 3 buttons-->
-		<button type="button" class="button" onclick="changeStyle()" id="total" style="margin-left: 2cm;">Total Deaths</button>
-		<button type="button" class="button" onclick="changeStyle()" id="bygender" >By Gender</button>
-		<button type="button" class="button" onclick="changeStyle()" id="byage" >By Age</button>
+		<button type="button" class="button" id="total" style="margin-left: 2cm;">Total Deaths</button>
+		<button type="button" class="button" id="bygender" >By Gender</button>
+		<button type="button" class="button" id="byage" >By Age</button>
 			
                 <svg id="bar" width="500" height="700"></svg>
             	</div>
@@ -363,7 +363,7 @@
 	
 	 total.onclick = function () {
 		 
-	 document.getElementsById("age_id").style.visibility= visible;
+	 document.getElementsById("age_id").style.visibility= "visible";
          cValue = function(d) { return d["gender"];},
                 color_over = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
