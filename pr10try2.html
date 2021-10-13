@@ -227,8 +227,7 @@
 			</div>
 		</ul>
 		
-		<div id="mychart"></div>
-		
+				
     
     		<div class="left">
 		<div id="map">
@@ -259,23 +258,6 @@
 		
 		<script>
 			
-			var myChart = new DonutChart(document.getElementById("mychart"), {
-		    r: 60,
-		    stroke: 16,
-		    scale: 100,
-		    items: [
-		      { label: "A", value: .2 },
-		      { label: "B", value: .1 },
-		      { label: "C", value: .5 },
-		    ]
-		})
-			.chart-item-bg { stroke: #ddd }
-
-			.chart-item-0 { stroke: #dd0000 }
-
-			.chart-item-1 { stroke: #00cc00 }
-
-			.chart-item-2 { stroke: #0000ff }
 
     //draw map--------------------------------------------------------
     d3.json("docs/pr10/streets.json", function (data) {
