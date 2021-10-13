@@ -343,6 +343,7 @@
 	var bygender = document.getElementById('bygender')
 	var byage = document.getElementById('byage')
 	const age_id = document.getElementById('age_id')
+	const gender_id = document.getElementById('gender_id')
 	
 	 //dots
             var dots = d3.select('#area').append('g');
@@ -376,11 +377,15 @@
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));});
 		 
-	if (age_id.style.display !== "none") {
-	    age_id.style.display = "none";
-	  } else {
-	    age_id.style.display = "block";
-	  }
+	 	age_id.style.display = "none";
+		gender_id.style.display = "none";
+	 
+		 
+	//if (age_id.style.display !== "none") {
+	 //   age_id.style.display = "none";
+	 // } else {
+	  //  age_id.style.display = "block";
+	  //}
 	
 	
 		 
@@ -402,6 +407,9 @@
 		
 		  d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
+		  
+		  age_id.style.display = "none";
+		gender_id.style.display = "block";
 	 
 
 	};
@@ -419,6 +427,9 @@
 		 
 		 d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
+		
+		age_id.style.display = "block";
+		gender_id.style.display = "none";
 		 
 		
 	
