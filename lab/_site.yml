@@ -1,0 +1,17 @@
+name: "causal_team"
+title: "Causal Team"
+theme: "theme_1.css"
+description: |
+  Causal Team
+output_dir: "."
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Team Members"
+      href: team.html
+    - text: "Mentoring"
+      href: mentoring.html
+    - text: "Publications"
+      href: publications.html
+output: distill::distill_article
