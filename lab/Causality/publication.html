@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Data Science Lab IUPUI</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<style>
+	.e{
+	   height:200px;
+	   margin-bottom: 30px;
+	   }
+
+	.publication{
+	   width:60%;
+	   margin-left:10%;
+
+	   }
+</style>
+</head>
+
+<body>
+	<div class="row">
+		<div id="myNav" class="overlay">
+			<a href="E:/nlp_team-master/palak_lab_website/index.html"><h3 style="color:white; text-align:center;"> Data Science Lab- IUPUI</h3></a>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+			<a href="index.html"><i class="glyphicon glyphicon-home" style="color:white;"></i><b style="color:white;">  Home</b></a>
+			<a href="causality_team.html"><i class="glyphicon glyphicon-book" style="color:white;"></i><b style="color:white;">  Team Members</b></a>
+			<a href="publication.html"><i class="glyphicon glyphicon-picture" style="color:white;"></i><b style="color:white;">  Publications</b></a>
+			<a href="contact.html"><i class="glyphicon glyphicon-envelope" style="color:white;"></i><b style="color:white;">  Contact</b></a>
+			</div>
+		</div>
+
+		<div class="left">
+            <div class="logo"><p><img src="images/logo.png" alt="logo"> </p></div>
+		<div class="tag">
+		<a href="E:\nlp_team-master\palak_lab_website\index.html"><h3 style="text-align:center; margin-left:20px; color:white; margin-bottom:20px;"> Data Science Lab </h3>
+		<h3 style="text-align:center; color:white; margin-bottom:20px;"> IUPUI </h3></a></div>
+		<div class= "nav" id="mynav">
+			<nav>
+			<ul style="list-style-type:none;">
+			<li><a href="index.html"><i class="glyphicon glyphicon-home" style="color:white;"></i><b style="color:white;">  Home</b></a></li>
+			<li><a href="causality_team.html"><i class="glyphicon glyphicon-book" style="color:white;"></i><b style="color:white;">  Team Members</b></a></li>
+			<li><a href="publication.html"><i class="glyphicon glyphicon-picture" style="color:white;"></i><b style="color:white;">  Publications</b></a></li>
+			<li><a href="contact.html"><i class="glyphicon glyphicon-envelope" style="color:white;"></i><b style="color:white;">  Contact</b></a></li>
+			</ul>
+			</nav>
+		</div>
+
+		      	
+		</div>
+
+		<script>
+			function openNav() {
+			  document.getElementById("myNav").style.height = "100%";
+			}
+
+			function closeNav() {
+			  document.getElementById("myNav").style.height = "0%";
+			}
+		</script>
+    
+    		<div class="right">	
+		<div class="iconnav"><a style="font-size:30px;cursor:pointer; float:right; margin-right:2%; padding-left:2%;" class="icon" onclick="openNav()">&#9776;</a></div>
+		
+		<p style="text-align:right; background-color: #990000 ; margin-left:-20px; height:50px; font-size:20px; color:white; padding:12px 25px 0px 20px;"><span class="one">IUPUI- Causality Project</span><span class="two">NSF Granted : Award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948322&HistoricalAwards=false">1948322</a></span></p>
+		<div class="two_nav">NSF Granted : Award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948322&HistoricalAwards=false">1948322</a></div>
+
+			<b><h1 style="margin-left:10%;">Resources</h1></b><hr style="width:100%; height:1px; background-color:#E6E0E1; color:#E6E0E1; margin-bottom:50px; margin-left:-20px;">
+			<div class="publication">
+				
+				<h2>Semi-Supervised Causal Relation Extraction</h2><hr style="width:100%; height:1px; background-color:#E6E0E1; color:#E6E0E1; margin-bottom:30px;">
+				<p style="font-size:18px; text-align:justify;"> Causal knowledge is an important target of information retrieval. However, most causal knowledge is locked away in unstructured text data like articles on the web. Deep learning models are getting better at extracting relationships from text, but typically don’t account for the uncertainty in the relations.<br><br>
+
+Our team is developing a semi-supervised method for creating large scale causal knowledge graphs that account for relation uncertainty.</p><br>
+				
+				<h2>What Causes Causality?</h2><hr style="width:100%; height:1px; background-color:#E6E0E1; color:#E6E0E1; margin-bottom:30px;">
+				<p style="color:black"><a href="papers/Causal_Paper_Draft.pdf">Working draft</a></p>
+				<p style="font-size:18px; text-align:justify;"> Deep learning models can perform well on complex tasks, but are often black boxes. In our recently submitted paper, “What Causes Causality? Explaining a Deep Causal Text Detection Model”, we investigate which words are most important to such a model in order to better understand its decision.<br><br>
+
+We produced saliency maps of word importance in causal sentences from CauseNet. A few examples are shown below. By investigating these plots, we found that the causal detection model broadly consider causal phrases, effect phrases and connective as important. In addition, the causal detection model exhibited a greedy property where multiple causal phrases in a single sentence were considered important, when only one would have been needed. We hope our results will inform the development of future causal extraction model.<br><br>
+
+Our team is developing a semi-supervised method for creating large scale causal knowledge graphs that account for relation uncertainty.</p><br>
+				<p><img src="images/saliency.png" width = 100% ></img></p>
+				
+				
+				
+			</div>
+			
+
+			
+    		</div>
+	</div>
+   
+    
+    
+</body> 
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Data Science Lab IUPUI</title>
+		<link rel="stylesheet" href="style.css">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<style>
+		.white{
+			height: 200px;
+			margin-bottom: 20px;
+			
+			}
+		
+		.grey{
+			background-color:  #FBECEF;
+			height: 200px;
+			margin-bottom: 20px;
+			
+			}
+		.projects{
+			width:80%;
+			margin: auto;
+			}
+	
+	</style>
+	</head>
+  	<body>
+    		<div class="row">
+		<div id="myNav" class="overlay">
+			<h3 style="color:white; text-align:center;"> Data Science Lab- IUPUI</h3>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+			<a href="index.html"><i class="glyphicon glyphicon-home" style="color:white;"></i><b style="color:white;">  Home</b></a>
+			<a href="projects.html"><i class="glyphicon glyphicon-book" style="color:white;"></i><b style="color:white;">  Research</b></a>
+			<a href="people.html"><i class="glyphicon glyphicon-user" style="color:white;"></i><b style="color:white;">  Personnel</b></a>
+			<a href="photos.html"><i class="glyphicon glyphicon-picture" style="color:white;"></i><b style="color:white;">  Gallery</b></a>
+			<a href="contact.html"><i class="glyphicon glyphicon-envelope" style="color:white;"></i><b style="color:white;">  Contact</b></a>
+			</div>
+		</div>
+
+		<div class="left">
+            <div class="logo"><p><img src="images/logo.png" alt="logo"> </p></div>
+		<div class="tag">
+		<a href="E:\nlp_team-master\palak_lab_website\index.html"><h3 style="text-align:center; margin-left:20px; color:white; margin-bottom:20px;"> Data Science Lab </h3>
+		<h3 style="text-align:center; color:white; margin-bottom:20px;"> IUPUI </h3></a></div>
+		<div class= "nav" id="mynav">
+			<nav>
+			<ul style="list-style-type:none;">
+			<li><a href="index.html"><i class="glyphicon glyphicon-home" style="color:white;"></i><b style="color:white;">  Home</b></a></li>
+			<li><a href="projects.html"><i class="glyphicon glyphicon-book" style="color:white;"></i><b style="color:white;">  Research</b></a></li>
+			<li><a href="people.html"><i class="glyphicon glyphicon-user" style="color:white;"></i><b style="color:white;">  Personnel</b></a></li>
+			<li><a href="photos.html"><i class="glyphicon glyphicon-picture" style="color:white;"></i><b style="color:white;">  Gallery</b></a></li>
+			<li><a href="contact.html"><i class="glyphicon glyphicon-envelope" style="color:white;"></i><b style="color:white;">  Contact</b></a></li>
+			</ul>
+			</nav>
+		</div>
+
+		      	
+		</div>
+
+		<script>
+			function openNav() {
+			  document.getElementById("myNav").style.height = "100%";
+			}
+
+			function closeNav() {
+			  document.getElementById("myNav").style.height = "0%";
+			}
+		</script>
+    
+    			<div class="right">	
+			<div class="iconnav"><a style="font-size:30px;cursor:pointer; float:right; margin-right:2%; padding-left:2%;" class="icon" onclick="openNav()">&#9776;</a></div>
+    
+				<div class="intro">
+
+		      		<h1 style="margin-left:10%;"> Research Summary</h1><hr style="width:70%; background-color:gray; color:gray; margin-left:10% !important; margin-right:45% !important;"> 
+				<p style="margin-left:10%; margin-right:45%; margin-bottom:10%; font-size:20px; width:70%; text-align:justify;" > Our lab focuses on Deep learning and Data mining to transfom large datasets into useful knowledge and developing different explainability methods. Our current emphasis is on extracting causal entities and relations between words using huge amount of text data and utilize Convolution methods to identify specific regions using image data.
+				</p>
+
+
+      		
+				</div>
+			
+				<div class="projects">
+
+					<h2> Research Projects</h2><hr style="background-color:gray; color:gray; margin-right:11%;"><br>
+
+					<div class="white" onclick="pr1()">
+						<div class="pr1" > 
+						<p style="font-size: large;"><img src="images/causal_pr.png" style="width:200px;height:200px; margin-right:15px; float: left; border: 1px solid #000000;"><b>Causality Extraction  <a href="Causality/index.html"><i class="glyphicon glyphicon-new-window"></i></a></b></p><br><br><br><br><br> 
+						</div>
+					</div>
+					<div id="pr1Details" style="display: none;">
+						<p style="font-size:20px;">This project aims at classification of causal sentences, extracting cause and effect entities from causal sentences and determining strength of relationship between cause and effect entity. This project has received the funding of National Science Foundation.</p>
+						
+					<hr>
+						
+					</div>
+
+					
+					
+
+					<div class="grey" onclick="pr2()">
+						<div class="pr2">
+						<p style="margin-bottom: -30px; font-size: large;"><img src="images/hotspot_pr.png" style="width:200px;height:200px; margin-right:15px; float: left; border: 1px solid #000000;"><b>HWC hotspots</b></p></br>
+						</div>
+					</div>
+					<div id="pr2Details" style="display: none;">
+						<p style="font-size:20px;">Human wildlife conflicts (HWC) are always a threat to food, shelter, habitat loss and even life. In this project we are identifying the HWC hotspots according to transformation of land use by humans invading the forest areas of wildlife.</p>
+					<hr>	
+					</div>
+
+
+					<div class="white" onclick="pr3()">
+						<div class="pr3" >
+						<p style="margin-bottom: -30px; font-size: large;"><img src="images/sjogren_pr.png" style="width:200px;height:200px; margin-right:15px; float: left; border: 1px solid #000000;"><b>Sjogren's Syndrome</b></p></br>
+						</div>
+					</div>
+					<div id="pr3Details" style="display: none;">
+						<p style="font-size:20px;">Sjogren's syndrome is a chronic autoimmune disorder identified by its two most common symptoms - dry eyes and a dry mouth. Our project has annotated sentences extracted from abstracts of various papers. The project goal is to diagnose Sjogren's syndrome early by classifying each word in a sentence into one of the four categories: 1. Risk Factors 2. Associated Conditions 3. Diagnostics tests 4. Signs and Symptoms. The results from this model will help diagnose the patients with Sjogren's syndrome.</p>
+					<hr>
+					</div>
+
+					
+					<div class="grey" onclick="pr4()">
+						<div class="pr4">
+						<p style="margin-bottom: -30px; font-size: large;"><img src="images/rpr1.png" style="width:200px;height:200px; margin-right:15px; float: left; border: 1px solid #000000;"><b>Project 4</b></p></br>
+						</div>
+					</div>
+					<div id="pr4Details"style="display: none;">
+						<p style="font-size:20px;">PROJECT4 Details</p>
+					<hr>
+					</div>
+
+
+				<script>
+					function pr1() {
+  						var x = document.getElementById("pr1Details");
+  						if (x.style.display === "none") {
+    							x.style.display = "block";
+  							}
+ 						else {
+    							x.style.display = "none";
+  							}
+						}
+					function pr2() {
+  						var x = document.getElementById("pr2Details");
+  						if (x.style.display === "none") {
+    							x.style.display = "block";
+  							}
+ 						else {
+    							x.style.display = "none";
+  							}
+						}
+					function pr3() {
+  						var x = document.getElementById("pr3Details");
+  						if (x.style.display === "none") {
+    							x.style.display = "block";
+  							}
+ 						else {
+    							x.style.display = "none";
+  							}
+						}
+					function pr4() {
+  						var x = document.getElementById("pr4Details");
+  						if (x.style.display === "none") {
+    							x.style.display = "block";
+  							}
+ 						else {
+    							x.style.display = "none";
+  							}
+						}
+				</script>
+			
+				</div>
+		
+    			</div>
+    		</div>
+      
+    	</body>  
+</html>
