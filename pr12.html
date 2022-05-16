@@ -17,6 +17,7 @@
     		height: 100%;
       		margin: 0;
     		padding : 0;
+		margin-left: 3px;
 		}
 		
 		
@@ -189,19 +190,19 @@ classification models. We have basically tried to determine if the water is pota
 		</p>
 		
 		<h2> Exploratory Data Analysis : </h2>
-		The major concern here was that the dataset was imbalanced. Around 61% of the records represents non-potability of water and only 39% records represent potability of water.<br>
+		<p>The major concern here was that the dataset was imbalanced. Around 61% of the records represents non-potability of water and only 39% records represent potability of water.<br>
 		We compared different models for this imbalance data and also oversampled the records of minority class to balance it. </p>
-	
+		</p>
 	<h2> Approach : </h2>
 	<p> We used different machine learning classification models starting from Logistic regression, SVM, QDA, K-nearest classifier to ensemble methods.
 As our data was imbalanced, we implemented all the above mentioned models with the original data and also with the over sampled balanced data to check the effect of oversampling on model
 accuracy. <br>
 
-	<h3>NOTE :</h3> Ensemble methods works well even if the data is imbalance. 
+	<h3>NOTE :</h3> <p>Ensemble methods works well even if the data is imbalance. </p>
 	
 	<h2> Comparison of different models </h2>
-	Here is the comparison of different models for classfication. 
-	<p><img src="docs/pr1/pr12_1.png" alt="Project 12" style="text-align=center" border = "2"></p>
+	<p>Here is the comparison of different models for classfication. 
+	<img src="docs/pr12/pr12_1.png" alt="Project 12" style="text-align=center" border = "2"></p>
 	
 	<p>We can see that the random forest algorithm worked best to determine potability of water even if the data is unbalanced. In case of random forest, precision
 and recall, both were balanced and high for unbalanced data [table 1] as well as over sampled
