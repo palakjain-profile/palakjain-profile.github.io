@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Palak Jain - Personal Page</title>
+	<!-- link to main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+
+	<style>
+		.text_info{
+			margin-left: 8px;
+			font-size: 20px;
+		
+		
+		}
+					
+
+	</style>
+
+</head>
+
+<body>
+	<object data="header.html" type="text/html" width="100%"></object>
+
+	
+	<div class="img_background">
+		<div class="w3-content w3-section" style="max-width:100%">
+	 		<img class="Slides w3-animate-right" src="docs/dance1.jpg" style="height:100%; width:100%" onContextMenu="return false;">
+		    	<!--<img class="Slides w3-animate-right" src="docs/dance2.jpg" style="height:100%; width:100%" onContextMenu="return false;">-->
+		    
+	    	</div> 
+	</div>
+	    
+	    
+	<div class="text_info">
+		<p style="text-align:justify; margin-left: 6px; margin-right:6px;">For me, Dance is something which makes me happy and full of positive energy. I liked Dancing since the 			childhood but in the beginning, I had stage fear. 
+			With my family support, gradually I started to enjoy being on stage and participated in many Interschool and Intercollege Dance competition. 
+			In 2018, I went for <b>Intensive Training Program at Nritya Shakti Studio by Shakti Mohan, Mumbai.</b>
+			Also attended <b>Urban Dance Camp in Mumbai</b>. I did Dance Choreography in various social and cultural events. 
+			Dance helps to increase my self esteem and encourages me to learn and try something new. It is like mental and physical relaxation to me.
+		</p>
+	
+	</div>	    
+	
+	<script>
+		var myIndex = 0;
+		carousel();
+
+		function carousel() {
+		  var i;
+		  var x = document.getElementsByClassName("Slides");
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  myIndex++;
+		  if (myIndex > x.length) {myIndex = 1}    
+		  x[myIndex-1].style.display = "block";  
+		  setTimeout(carousel, 5000);    
+		}
+	</script>
+
+	    
+</body>
+ 
+<footer>
+	<object data="footer.html" type="text/html" width="100%"></object>   
+	
+</footer>
+
+</html>
