@@ -401,7 +401,7 @@
          cout = function(d) { return d["gender"];},
                 color = d3.scale.linear().domain([1,length])
                 .interpolate(d3.interpolateHcl)
-                .range([d3.rgb('#E18EF1'), d3.rgb('#7792CA')]);
+                .range([d3.rgb("#C839B2"), d3.rgb('#3957C8')]);
 		
 		  d3.selectAll('circle')
 		 .style("fill", function(d) { return color(cout(d));})
