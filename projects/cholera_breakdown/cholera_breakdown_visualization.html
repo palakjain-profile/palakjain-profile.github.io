@@ -223,12 +223,12 @@
 		
 	  bygender.onclick = function () {
           cValue = function(d) { return d["gender"];},
-                color_over = d3.scale.linear().domain([1,length])
+                color_over = d3.scale.linear().domain([0,1])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#7792CA"), d3.rgb('#E18EF1')]);
 		  
          cout = function(d) { return d["gender"];},
-                color = d3.scale.linear().domain([1,length])
+                color = d3.scale.linear().domain([0,1])
                 .interpolate(d3.interpolateHcl)
                 .range([d3.rgb("#7792CA"), d3.rgb('#E18EF1')]);
 		
