@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	
+<head> 
+		
+	<title>Palak Jain - Personal Page</title>
+	<!-- link to main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+	<style>
+	
+		.container{
+			text-align: center;
+			}
+
+	</style>
+	
+</head>
+
+<body>
+
+
+	<div class="container">
+
+	<object data="header.html" type="text/html" width="100%"></object>
+
+    <h1 style= "text-align: center; font-variant: small-caps; font-size:xx-large; margin-top:20px;">
+	  London's 1854 cholera epidemic </h1>
+		
+		 <ul>
+			<div class= "present">
+			<li><a href="pr10"><b>Visualization</b></a></li>
+			 </div>
+			<div class= "present">
+			<li><a href="https://iu.mediaspace.kaltura.com/edit/1_twsmspyu"><b>Video Presentation</b></a></li>
+			</div>
+		</ul>
+		
+		<div class="content">
+		<h2 style= "text-align: left; font-variant: small-caps; font-size:xx-large; margin-top:10px; margin-left:5px">
+	  Documentation </h2>
+		<p> Created By: <a href='https://palak-j.github.io/'> Palak Jain</a> <br> Guided By: <a href= 'https://khreda.com/index.html'>Prof. Khairi Reda </a>
+		<p> Main purpose of this project is to reproduce Dr.John Snow's map of London's 1854 cholera epidemic and explain it using some interactive visualization. Dr. John Snow's map was itself a masterpiece where anyone has established a link between contaiminated water and Cholera. We can imagine, how this insightful visualizations can help in understanding the root problems. 
+			<br>In this project, I have used D3, HTML and CSS to recreate the map in interactive version.    </p>
+			
+		<p> <b>Dataset:</b><br>
+		Three csv and one json file has been provided as input.<br>
+		1) street.json: Consist of few coordinates data to create a map.<br>
+		2) pumps.csv: Consist of coordinates for pumps.<br>
+		3) deathdays.csv : Consist of two features (date, deaths) which represent number of deaths for each day.<br>
+		4) deaths_age_sex.csv : Consist of 4 columns(x, y, age, gender) which has detail for each death including location, age and gender.
+		</p>
+		
+		<p> <b>Design Process:</b> <br>
+			The first task I started with is to create a map using street data and locate all the pumps and coordinates of each death record. Next to it, I created a bar graph representing the number of deaths for each day. 
+<br> Then, the main task was to make this bar graph and map interactive. I faced some issues while linking these graphs because the provided dataset doesnot contain date of each death directly. I made an assumption here that the data in death_age_sex.csv is sorted by date so that I that I can link it to the deathdays.csv and get date for each record.<br>
+			
+			After this, I wanted to check location of deaths with respect to their respective gender and age. I used buttons and onclick event to update the map with respect to gender as well as age.
+			To display total deaths without any filter, I used single color to represent each record on map. <br>
+			When I updated map with respect to gender, I used two colors: Pink(for female) and Blue(for male).<br>
+			When I updated map with respect to age, I used the different categorical color to represent the age group but in place of that I can also use the sequential colors. I was in dilemma for assigning colors to different age groups. If I give it as range of same color, it is difficult to differentiate and if I use different colors for different age group, it will not display the increasing value in age. For this project, i came to the conclusion of using different colors for differen age group because i want to see which group has higher count which is little difficult to differentiate in sequential color.
+			</p>
+			
+			<p><b> Conclusion: </b><br>
+				The main conclusion we can draw from the visualization is that the number of deaths are at peak on September 1 and overall deaths are very related to the location of pump. Some places have high death rate when compared to others. Apart from this, when we check number of deaths with respect to gender, we can see there is no such effect of gender, on the other hand age can be an important factor to note. Death rate is high for age group 5. In conclusion, we can say that the visualization is playing a huge role in understanding the effect of different features on the number of deaths.
+				
+			
+			<img src="docs/pr10/fig1.PNG" width = "1000vw" height= "550vh" style="border: 1px solid #8904B1; margin-top: 3px; margin-bottom:3px;" onContextMenu="return false;">
+			</p>
+		
+
+		
+		
+		<p> <b>References:</b> <br>
+		<div class="references">
+			<ul> 
+				<li><a href="https://www.w3schools.com/"><u>https://www.w3schools.com/</u></a> </li>
+				<li><a href="https://medium.com/@ivan.ha/using-d3-js-to-plot-an-interactive-map-34fbea76bd78"><u>https://medium.com/@ivan.ha/using-d3-js-to-plot-an-interactive-map-34fbea76bd78</u></a> </li>
+				<li><a href="https://www.d3-graph-gallery.com/graph/barplot_horizontal.html"><u>https://www.d3-graph-gallery.com/graph/barplot_horizontal.html</u></a> </li>
+				<li><a href="https://jjunge07.github.io/"><u>https://jjunge07.github.io/</u></a> </li>
+				<li><a href="https://github.com/cklutzke/H517Project1"><u>https://github.com/cklutzke/H517Project1</u></a> </li>
+					
+			</ul>
+		</div>	
+		</div>
+    
+
+	</div><!-- /.container -->
+
+</body>
+
+
+<footer>
+	
+	<object data="footer.html" type="text/html" width="100%"></object>
+
+</footer>
+	
+
+</html>
+	
