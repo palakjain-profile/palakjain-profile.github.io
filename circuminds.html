@@ -83,26 +83,12 @@
 
 	<hr>
 
-	<form action="email.php" method="POST">
-	    <label for="name">Name:</label><br>
-	    <input type="text" id="name" name="name" required><br><br>
-	
-	    <label for="email">Email:</label><br>
-	    <input type="email" id="email" name="email" required><br><br>
-	
-	    <label for="title">Title:</label><br>
-	    <input type="text" id="title" name="title" required><br><br>
-	
-	    <label for="message">Message:</label><br>
-	    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-	
-	    <button type="submit">Submit</button>
+	<form action="https://formsubmit.co/circuminds.ai@gmail.com" method="POST">
+	     <input type="text" name="name" required>
+	     <input type="email" name="email" required>
+	     <button type="submit">Send</button>
 	</form>
-
-	<?php
-    		mail('circuminds.ai@gmail.com', $_POST['email'], $_POST['name'], $_POST['title'], $_POST['message']);
-	?>
-		
+			
 
 		
 	</div><!-- /.container -->
