@@ -83,7 +83,7 @@
 
 	<hr>
 
-	<form action="https://formsubmit.co/el/yapotu" method="POST">
+	<form action="email.php" method="POST">
 	    <label for="name">Name:</label><br>
 	    <input type="text" id="name" name="name" required><br><br>
 	
@@ -98,6 +98,11 @@
 	
 	    <button type="submit">Submit</button>
 	</form>
+
+	<?php
+    		mail('circuminds.ai@gmail.com', $_POST['title'], $_POST['message']);
+	?>
+		
 
 		
 	</div><!-- /.container -->
